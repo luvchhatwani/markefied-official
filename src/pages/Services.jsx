@@ -1,53 +1,52 @@
 import { Box, Container, Typography, Grid, Chip, Button, Card, CardContent, Accordion, AccordionSummary, AccordionDetails, Divider, Stack } from '@mui/material';
 import { ExpandMore, Check, ArrowForward } from '@mui/icons-material';
 import { motion } from 'framer-motion';
-import { Palette, Code2, Boxes, LineChart, ShieldCheck, Zap } from 'lucide-react';
+import { Share2, Search, Target, ShieldCheck, Zap } from 'lucide-react';
 
 const ALL_SERVICES = [
-  { icon: Palette, title: 'Product Design', text: 'UX research, wireframes, and pixel-perfect UI built on a durable design system.' },
-  { icon: Code2, title: 'Engineering', text: 'React, motion, and infrastructure written to production standard from day one.' },
-  { icon: Boxes, title: 'Brand Systems', text: 'Identity, voice, and visual language that hold up across every surface.' },
-  { icon: LineChart, title: 'Growth & Strategy', text: 'Positioning, funnels, and experiments so the design work compounds.' },
+  { id: 'smm', icon: Share2, title: 'Social Media Marketing', text: 'Grow your audience and build a strong brand presence across Instagram, Facebook, LinkedIn, and other platforms.' },
+  { id: 'google', icon: Search, title: 'Google Ads', text: 'Generate high-quality leads and maximize ROI with data-driven Google advertising campaigns.' },
+  { id: 'meta', icon: Target, title: 'Meta Ads', text: 'Reach the right audience using Facebook and Instagram ads designed for conversions and sales.' },
 ];
 
 const FEATURES = [
-  { icon: Zap, title: 'Fast iteration', text: 'Weekly builds you can click through, not static decks.' },
-  { icon: ShieldCheck, title: 'Senior-only team', text: 'No juniors learning on your budget — every hour is senior craft.' },
-  { icon: Check, title: 'Fixed scope', text: 'Clear deliverables and timelines agreed before day one.' },
+  { icon: Zap, title: 'Performance Driven', text: 'We focus entirely on metrics that matter — leads, conversions, and customer acquisition cost.' },
+  { icon: ShieldCheck, title: 'Expert Advertisers', text: 'No junior accounts managers. Your campaigns are run by certified advertising specialists.' },
+  { icon: Check, title: 'Transparent ROI Dashboards', text: 'Live custom marketing reports so you always know exactly where your spend goes.' },
 ];
 
 const PLANS = [
   {
-    name: 'Sprint',
-    price: '$12k',
-    period: '/ 2 weeks',
-    description: 'A focused design sprint for a single flow or feature.',
-    features: ['1 senior designer', 'Up to 2 flows', 'Daily async updates', 'Figma handoff'],
+    name: 'Starter Marketing',
+    price: '$3.5k',
+    period: '/ month',
+    description: 'Perfect for startups and local businesses looking to establish their online presence.',
+    features: ['Social Media Management', 'Basic Google & Meta Ads', 'Monthly Performance Reports', 'Email Support'],
     highlighted: false,
   },
   {
-    name: 'Studio',
-    price: '$28k',
+    name: 'Growth Engine',
+    price: '$7.5k',
     period: '/ month',
-    description: 'Our most popular engagement — a dedicated pod for your product.',
-    features: ['Design + engineering pod', 'Unlimited requests', 'Weekly working demos', 'Slack-based collaboration'],
+    description: 'Our most popular plan — scaling campaigns across search, social, and remarketing channels.',
+    features: ['Omnichannel Ads Management', 'Weekly Campaign Optimizations', 'Custom Landing Page Designs', 'Dedicated Slack Channel', 'Bi-weekly Video Strategy Calls'],
     highlighted: true,
   },
   {
-    name: 'Partner',
+    name: 'Enterprise Scale',
     price: 'Custom',
     period: '',
-    description: 'Ongoing partnership for teams scaling design & engineering together.',
-    features: ['Dedicated team of 4+', 'Quarterly roadmap planning', 'Priority response SLA', 'Embedded in your tools'],
+    description: 'Full-scale marketing department partnership with custom strategies for large-scale brands.',
+    features: ['Dedicated Account Team', 'Uncapped Ads Budget Management', 'Advanced Analytics & Attributions', 'Creative Ad Copy & Design Pod', '24/7 Priority SLA Support'],
     highlighted: false,
   },
 ];
 
 const FAQS = [
-  { q: 'How fast can we start?', a: 'Most engagements kick off within two weeks of signing, once we\'ve scoped the work together.' },
-  { q: 'Do you work with early-stage startups?', a: 'Yes — the Sprint plan is designed for exactly that: a focused, fixed-scope engagement.' },
-  { q: 'What tools do you use?', a: 'Figma for design, React/TypeScript for engineering, and Linear or your existing tracker for project management.' },
-  { q: 'Can we hire you for ongoing work?', a: 'The Partner plan is built for that — a dedicated team embedded in your roadmap on a rolling basis.' },
+  { q: 'What services do you offer?', a: 'We specialize in Social Media Marketing (SMM), Google Ads, and Meta Ads (Facebook & Instagram) to drive traffic, leads, and sales.' },
+  { q: 'How long before I see results?', a: 'While Meta and Google Ads can generate immediate traffic and conversions within the first week, full campaign optimization and consistent scaling typically take 30 to 90 days.' },
+  { q: 'Do you work with small businesses?', a: 'Yes, our Starter plan is designed specifically to help growing startups and local businesses build their digital foundation.' },
+  { q: 'How much do your services cost?', a: 'Our monthly plans start at $3.5k/month for Starter and $7.5k/month for our full Growth Engine. Custom enterprise partnerships are scaled based on scope.' },
 ];
 
 export default function ServicesPage() {
@@ -57,29 +56,29 @@ export default function ServicesPage() {
       <Container maxWidth="md" sx={{ textAlign: 'center', mb: { xs: 8, md: 10 } }}>
         <Chip label="Services" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600 }} />
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <Typography variant="h1" sx={{ fontSize: { xs: '2.2rem', md: '3.2rem' }, mb: 3 }}>
-            Everything a modern product team needs, under one roof.
+          <Typography variant="h1" sx={{ fontSize: { xs: '2.2rem', md: '3.2rem' }, mb: 3, fontFamily: 'Fraunces, serif' }}>
+            Paid Acquisition & Social Growth That Scales
           </Typography>
         </motion.div>
-        <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 620, mx: 'auto' }}>
-          From first sketch to shipped feature — we design, build, and iterate with you, not just for you.
+        <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 620, mx: 'auto', fontSize: '1.1rem' }}>
+          We focus on what matters: driving leads, revenue, and compounding ROI for your business through optimized Google Ads, Meta Ads, and organic social strategy.
         </Typography>
       </Container>
 
       {/* All services */}
-      <Container maxWidth="lg" id="design" sx={{ mb: { xs: 8, md: 10 } }}>
-        <Grid container spacing={3}>
+      <Container maxWidth="lg" sx={{ mb: { xs: 8, md: 10 } }}>
+        <Grid container spacing={3} justifyContent="center">
           {ALL_SERVICES.map((s, i) => {
             const Icon = s.icon;
             return (
-              <Grid item xs={12} sm={6} key={s.title} id={s.title === 'Engineering' ? 'engineering' : s.title === 'Brand Systems' ? 'brand' : undefined}>
+              <Grid item xs={12} sm={6} md={4} key={s.title} id={s.id}>
                 <motion.div
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                 >
-                  <Card variant="outlined" sx={{ p: 3, height: '100%', borderRadius: '20px', display: 'flex', gap: 2.5, alignItems: 'flex-start' }}>
+                  <Card variant="outlined" sx={{ p: 3, height: '100%', borderRadius: '20px', display: 'flex', gap: 2.5, alignItems: 'flex-start', bgcolor: 'background.paper', borderColor: 'rgba(255,255,255,0.06)' }}>
                     <Box sx={{ width: 48, height: 48, borderRadius: '14px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                       <Icon size={22} color="#5084C4" />
                     </Box>
@@ -99,7 +98,7 @@ export default function ServicesPage() {
       <Box id="growth" sx={{ py: { xs: 8, md: 10 }, bgcolor: 'accent.main' }}>
         <Container maxWidth="lg">
           <Typography variant="h2" sx={{ fontSize: { xs: '1.8rem', md: '2.4rem' }, textAlign: 'center', mb: 5 }}>
-            Why teams choose Nexora
+            Why brands partner with Markefied
           </Typography>
           <Grid container spacing={4}>
             {FEATURES.map((f, i) => {
@@ -108,7 +107,7 @@ export default function ServicesPage() {
                 <Grid item xs={12} md={4} key={f.title}>
                   <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
                     <Box sx={{ textAlign: 'center' }}>
-                      <Box sx={{ width: 56, height: 56, borderRadius: '16px', bgcolor: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2, boxShadow: 1 }}>
+                      <Box sx={{ width: 56, height: 56, borderRadius: '16px', bgcolor: 'background.paper', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2, boxShadow: 1, border: '1px solid rgba(255,255,255,0.06)' }}>
                         <Icon size={24} color="#5084C4" />
                       </Box>
                       <Typography variant="h6" sx={{ mb: 1 }}>{f.title}</Typography>
@@ -149,29 +148,35 @@ export default function ServicesPage() {
                     borderColor: plan.highlighted ? 'primary.main' : 'divider',
                     p: 1,
                     position: 'relative',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'space-between',
                     transform: plan.highlighted ? { md: 'scale(1.04)' } : 'none',
+                    bgcolor: 'background.paper',
                   }}
                 >
                   {plan.highlighted && (
                     <Chip label="Most Popular" color="primary" size="small" sx={{ position: 'absolute', top: 20, right: 20, fontWeight: 600 }} />
                   )}
-                  <CardContent sx={{ p: 3 }}>
-                    <Typography variant="h6" sx={{ mb: 1 }}>{plan.name}</Typography>
-                    <Typography variant="body2" color="text.secondary" sx={{ mb: 3, minHeight: 40 }}>
-                      {plan.description}
-                    </Typography>
-                    <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.5, mb: 3 }}>
-                      <Typography variant="h3" sx={{ fontFamily: 'Fraunces, serif' }}>{plan.price}</Typography>
-                      <Typography variant="body2" color="text.secondary">{plan.period}</Typography>
+                  <CardContent sx={{ p: 3, display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
+                    <Box>
+                      <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>{plan.name}</Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{ mb: 3, minHeight: 40 }}>
+                        {plan.description}
+                      </Typography>
+                      <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.5, mb: 3 }}>
+                        <Typography variant="h3" sx={{ fontFamily: 'Fraunces, serif', fontWeight: 600 }}>{plan.price}</Typography>
+                        <Typography variant="body2" color="text.secondary">{plan.period}</Typography>
+                      </Box>
+                      <Stack spacing={1.2} sx={{ mb: 4 }}>
+                        {plan.features.map((f) => (
+                          <Stack direction="row" spacing={1} alignItems="center" key={f}>
+                            <Check sx={{ fontSize: 18, color: 'primary.main' }} />
+                            <Typography variant="body2">{f}</Typography>
+                          </Stack>
+                        ))}
+                      </Stack>
                     </Box>
-                    <Stack spacing={1.2} sx={{ mb: 3 }}>
-                      {plan.features.map((f) => (
-                        <Stack direction="row" spacing={1} alignItems="center" key={f}>
-                          <Check sx={{ fontSize: 18, color: 'primary.main' }} />
-                          <Typography variant="body2">{f}</Typography>
-                        </Stack>
-                      ))}
-                    </Stack>
                     <Button
                       fullWidth
                       variant={plan.highlighted ? 'contained' : 'outlined'}
@@ -194,8 +199,8 @@ export default function ServicesPage() {
           Frequently asked questions
         </Typography>
         {FAQS.map((faq) => (
-          <Accordion key={faq.q} disableGutters elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: '16px !important', mb: 1.5, '&:before': { display: 'none' } }}>
-            <AccordionSummary expandIcon={<ExpandMore />}>
+          <Accordion key={faq.q} disableGutters elevation={0} sx={{ border: '1px solid', borderColor: 'divider', borderRadius: '16px !important', mb: 1.5, '&:before': { display: 'none' }, bgcolor: 'background.paper' }}>
+            <AccordionSummary expandIcon={<ExpandMore sx={{ color: 'primary.main' }} />}>
               <Typography sx={{ fontWeight: 600 }}>{faq.q}</Typography>
             </AccordionSummary>
             <AccordionDetails>
@@ -209,11 +214,11 @@ export default function ServicesPage() {
       <Container maxWidth="md" sx={{ pb: { xs: 10, md: 14 } }}>
         <Divider sx={{ mb: 6 }} />
         <Box sx={{ textAlign: 'center' }}>
-          <Typography variant="h4" sx={{ mb: 2 }}>Ready to start your project?</Typography>
+          <Typography variant="h4" sx={{ mb: 2 }}>Ready to scale your digital presence?</Typography>
           <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
-            Tell us what you're building — we'll reply with next steps within one business day.
+            Tell us about your growth goals — we'll reply with a customized marketing audit within one business day.
           </Typography>
-          <Button variant="contained" color="primary" size="large" endIcon={<ArrowForward />} sx={{ px: 4 }}>
+          <Button variant="contained" color="primary" size="large" onClick={() => window.location.href = '/contact'} endIcon={<ArrowForward />} sx={{ px: 4 }}>
             Contact Us
           </Button>
         </Box>

@@ -27,14 +27,19 @@ export default function useLenis() {
 
     lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    const updateLenis = (time) => {
       lenis.raf(time * 1000);
-    });
+    };
+
+    window.lenis = lenis;
+
+    gsap.ticker.add(updateLenis);
     gsap.ticker.lagSmoothing(0);
 
     return () => {
       lenis.destroy();
-      gsap.ticker.remove(lenis.raf);
+      window.lenis = undefined;
+      gsap.ticker.remove(updateLenis);
     };
   }, []);
 }

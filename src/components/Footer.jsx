@@ -16,27 +16,27 @@ import {
 } from '@mui/material';
 import { KeyboardArrowUp } from '@mui/icons-material';
 import { motion } from 'framer-motion';
-import { FiTwitter, FiInstagram, FiLinkedin, FiDribbble, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
+import { FiTwitter, FiInstagram, FiLinkedin, FiFacebook, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
 
 const QUICK_LINKS = [
   { label: 'Home', to: '/' },
   { label: 'About', to: '/about' },
   { label: 'Services', to: '/services' },
   { label: 'Blog', to: '/blog' },
+  { label: 'Contact', to: '/contact' },
 ];
 
 const SERVICE_LINKS = [
-  { label: 'Product Design', to: '/services#design' },
-  { label: 'Engineering', to: '/services#engineering' },
-  { label: 'Brand Systems', to: '/services#brand' },
-  { label: 'Growth & Strategy', to: '/services#growth' },
+  { label: 'Social Media Marketing', to: '/services#smm' },
+  { label: 'Google Ads', to: '/services#google' },
+  { label: 'Meta Ads', to: '/services#meta' },
 ];
 
 const SOCIALS = [
-  { icon: FiTwitter, label: 'Twitter', href: 'https://twitter.com' },
+  { icon: FiTwitter, label: 'X (Twitter)', href: 'https://twitter.com' },
   { icon: FiInstagram, label: 'Instagram', href: 'https://instagram.com' },
   { icon: FiLinkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
-  { icon: FiDribbble, label: 'Dribbble', href: 'https://dribbble.com' },
+  { icon: FiFacebook, label: 'Facebook', href: 'https://facebook.com' },
 ];
 
 export default function Footer() {
@@ -59,26 +59,24 @@ export default function Footer() {
       <Container maxWidth="lg">
         <Grid container spacing={6}>
           <Grid item xs={12} md={4}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1, mb: 2 }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
               <Box
+                component="img"
+                src="/logo.png"
+                alt="Markefied Logo"
                 sx={{
                   width: 34,
                   height: 34,
-                  borderRadius: '10px',
-                  background: 'linear-gradient(135deg, #5084C4 0%, #7FA5D6 100%)',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  objectFit: 'contain',
+                  filter: 'brightness(0) saturate(100%) invert(48%) sepia(21%) saturate(1478%) hue-rotate(180deg) brightness(91%) contrast(87%)'
                 }}
-              >
-                <Typography sx={{ fontWeight: 800, fontSize: 16 }}>N</Typography>
-              </Box>
+              />
               <Typography variant="h6" sx={{ fontFamily: 'Fraunces, serif' }}>
-                Nexora
+                Markefied
               </Typography>
             </Box>
             <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.65)', maxWidth: 300, mb: 3 }}>
-              A design & engineering studio crafting interfaces that feel genuinely alive.
+              A modern digital marketing agency focused on helping brands grow digitally.
             </Typography>
             <Stack direction="row" spacing={1}>
               {SOCIALS.map(({ icon: Icon, label, href }) => (
@@ -152,16 +150,19 @@ export default function Footer() {
                 type="email"
                 required
                 sx={{
-                  input: { color: '#fff' },
+                  input: { color: '#fff', py: '8px' },
                   '& .MuiOutlinedInput-root': {
-                    bgcolor: 'rgba(255,255,255,0.06)',
+                    bgcolor: 'rgba(255,255,255,0.04)',
                     borderRadius: 2,
-                    '& fieldset': { borderColor: 'rgba(255,255,255,0.15)' },
+                    height: 40,
+                    '& fieldset': { borderColor: 'rgba(255,255,255,0.12)' },
+                    '&:hover fieldset': { borderColor: 'rgba(255,255,255,0.24)' },
+                    '&.Mui-focused fieldset': { borderColor: 'primary.main' },
                   },
                 }}
                 fullWidth
               />
-              <Button type="submit" variant="contained" color="primary" sx={{ px: 3, whiteSpace: 'nowrap' }}>
+              <Button type="submit" variant="contained" color="primary" sx={{ px: 3, whiteSpace: 'nowrap', height: 40, borderRadius: 2, fontWeight: 600 }}>
                 Subscribe
               </Button>
             </Box>
@@ -169,7 +170,7 @@ export default function Footer() {
               <Stack direction="row" spacing={1} alignItems="center">
                 <FiMail size={15} color="rgba(255,255,255,0.6)" />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)' }}>
-                  hello@nexora.studio
+                  hello@markefied.com
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1} alignItems="center">
@@ -201,7 +202,7 @@ export default function Footer() {
           }}
         >
           <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.5)' }}>
-            © {new Date().getFullYear()} Nexora Studio. All rights reserved.
+            © 2026 Markefied. All Rights Reserved.
           </Typography>
           <Stack direction="row" spacing={3}>
             <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.5)' }}>

@@ -1,7 +1,7 @@
 import { createTheme } from '@mui/material/styles';
 
 // ---- Design tokens -------------------------------------------------------
-// Primary:    #5084C4  (Nexora blue — used sparingly as an active/accent signal)
+// Primary:    #5084C4  (Markefied blue — used sparingly as an active/accent signal)
 // Secondary:  #111111  (near-black — carries weight & contrast)
 // Background: #FFFFFF
 // Accent:     #EEF5FF  (soft tint for surfaces & hover states)
@@ -22,10 +22,10 @@ export const tokens = {
   line: 'rgba(17,17,17,0.08)',
 };
 
-const getTheme = (mode = 'light') =>
+const getTheme = () =>
   createTheme({
     palette: {
-      mode,
+      mode: 'dark',
       primary: {
         main: tokens.primary,
         dark: tokens.primaryDark,
@@ -37,16 +37,16 @@ const getTheme = (mode = 'light') =>
         contrastText: '#FFFFFF',
       },
       background: {
-        default: mode === 'light' ? tokens.background : '#0B0C10',
-        paper: mode === 'light' ? '#FFFFFF' : '#121319',
+        default: '#0B0C10',
+        paper: '#121319',
       },
       text: {
-        primary: mode === 'light' ? tokens.ink : '#F4F6FB',
-        secondary: mode === 'light' ? tokens.inkSoft : '#A7ACB9',
+        primary: '#F4F6FB',
+        secondary: '#A7ACB9',
       },
-      divider: mode === 'light' ? tokens.line : 'rgba(255,255,255,0.08)',
+      divider: 'rgba(255,255,255,0.08)',
       accent: {
-        main: mode === 'light' ? tokens.accent : 'rgba(80,132,196,0.14)',
+        main: 'rgba(80,132,196,0.14)',
         contrastText: tokens.ink,
       },
     },

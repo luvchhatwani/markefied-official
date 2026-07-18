@@ -14,6 +14,9 @@ export default function useCountUp(end, { duration = 1600, decimals = 0 } = {}) 
     const node = ref.current;
     if (!node) return undefined;
 
+    let mounted = true;
+    let frameId = null;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -21,12 +24,15 @@ export default function useCountUp(end, { duration = 1600, decimals = 0 } = {}) 
             started.current = true;
             const startTime = performance.now();
             const tick = (now) => {
+              if (!mounted) return;
               const progress = Math.min((now - startTime) / duration, 1);
               const eased = 1 - Math.pow(1 - progress, 3);
               setValue(Number((end * eased).toFixed(decimals)));
-              if (progress < 1) requestAnimationFrame(tick);
+              if (progress < 1) {
+                frameId = requestAnimationFrame(tick);
+              }
             };
-            requestAnimationFrame(tick);
+            frameId = requestAnimationFrame(tick);
           }
         });
       },
@@ -34,7 +40,13 @@ export default function useCountUp(end, { duration = 1600, decimals = 0 } = {}) 
     );
 
     observer.observe(node);
-    return () => observer.disconnect();
+    return () => {
+      mounted = false;
+      if (frameId) {
+        cancelAnimationFrame(frameId);
+      }
+      observer.disconnect();
+    };
   }, [end, duration, decimals]);
 
   return [ref, value];

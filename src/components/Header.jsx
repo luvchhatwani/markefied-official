@@ -23,8 +23,6 @@ import {
   Close as CloseIcon,
   Search as SearchIcon,
   NotificationsNone,
-  DarkMode,
-  LightMode,
   KeyboardArrowDown,
 } from '@mui/icons-material';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -36,15 +34,17 @@ const NAV_LINKS = [
     label: 'Services',
     to: '/services',
     dropdown: [
-      { label: 'Product Design', to: '/services#design' },
-      { label: 'Engineering', to: '/services#engineering' },
-      { label: 'Brand Systems', to: '/services#brand' },
+      { label: 'Social Media Marketing', to: '/services#smm' },
+      { label: 'Google Ads', to: '/services#google' },
+      { label: 'Meta Ads', to: '/services#meta' },
     ],
   },
   { label: 'Blog', to: '/blog' },
+  { label: 'Contact', to: '/contact' },
 ];
 
-export default function Header({ mode, onToggleMode }) {
+export default function Header() {
+  const mode = 'dark';
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
@@ -72,10 +72,16 @@ export default function Header({ mode, onToggleMode }) {
       elevation={0}
       sx={{
         bgcolor: scrolled
-          ? 'rgba(255,255,255,0.72)'
-          : 'rgba(255,255,255,0.0)',
+          ? mode === 'light'
+            ? 'rgba(255,255,255,0.72)'
+            : 'rgba(11,12,16,0.72)'
+          : 'transparent',
         backdropFilter: scrolled ? 'blur(18px) saturate(180%)' : 'none',
-        borderBottom: scrolled ? '1px solid rgba(17,17,17,0.06)' : '1px solid transparent',
+        borderBottom: scrolled
+          ? mode === 'light'
+            ? '1px solid rgba(17,17,17,0.06)'
+            : '1px solid rgba(255,255,255,0.08)'
+          : '1px solid transparent',
         transition: 'all 0.4s cubic-bezier(0.16,1,0.3,1)',
         color: 'text.primary',
       }}
@@ -86,23 +92,21 @@ export default function Header({ mode, onToggleMode }) {
           <Box
             component={NavLink}
             to="/"
-            sx={{ display: 'flex', alignItems: 'center', gap: 1, textDecoration: 'none', color: 'inherit' }}
+            sx={{ display: 'flex', alignItems: 'center', gap: 1.5, textDecoration: 'none', color: 'inherit' }}
           >
             <Box
+              component="img"
+              src="/logo.png"
+              alt="Markefied Logo"
               sx={{
                 width: 38,
                 height: 38,
-                borderRadius: '12px',
-                background: 'linear-gradient(135deg, #5084C4 0%, #111111 100%)',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
+                objectFit: 'contain',
+                filter: 'brightness(0) saturate(100%) invert(48%) sepia(21%) saturate(1478%) hue-rotate(180deg) brightness(91%) contrast(87%)'
               }}
-            >
-              <Typography sx={{ color: '#fff', fontWeight: 800, fontSize: 18 }}>N</Typography>
-            </Box>
+            />
             <Typography variant="h6" sx={{ fontFamily: 'Fraunces, serif', fontWeight: 600, letterSpacing: '-0.02em' }}>
-              Nexora
+              Markefied
             </Typography>
           </Box>
 
@@ -128,10 +132,23 @@ export default function Header({ mode, onToggleMode }) {
                       color: isActive ? 'primary.main' : 'text.primary',
                       fontWeight: 500,
                       position: 'relative',
+                      transition: 'all 0.3s cubic-bezier(0.16, 1, 0.3, 1)',
+                      '&:hover': {
+                        color: 'primary.main',
+                        '& .MuiButton-endIcon': {
+                          transform: 'translateY(2px)',
+                        }
+                      },
+                      '&:hover .hover-line': {
+                        transform: 'scaleX(1)',
+                      },
+                      '& .MuiButton-endIcon': {
+                        transition: 'transform 0.3s ease',
+                      }
                     }}
                   >
                     {link.label}
-                    {isActive && (
+                    {isActive ? (
                       <motion.div
                         layoutId="active-pill"
                         style={{
@@ -144,6 +161,22 @@ export default function Header({ mode, onToggleMode }) {
                           background: '#5084C4',
                         }}
                       />
+                    ) : (
+                      <Box
+                        className="hover-line"
+                        sx={{
+                          position: 'absolute',
+                          bottom: 2,
+                          left: 16,
+                          right: 16,
+                          height: 2,
+                          borderRadius: 2,
+                          background: 'rgba(80,132,196,0.5)',
+                          transform: 'scaleX(0)',
+                          transition: 'transform 0.3s ease',
+                          transformOrigin: 'center',
+                        }}
+                      />
                     )}
                   </Button>
                   {link.dropdown && (
@@ -154,6 +187,7 @@ export default function Header({ mode, onToggleMode }) {
                       MenuListProps={{ onMouseLeave: () => setServicesAnchor(null) }}
                       TransitionComponent={Fade}
                       disableAutoFocusItem
+                      disablePortal
                       PaperProps={{
                         sx: {
                           mt: 1,
@@ -197,15 +231,29 @@ export default function Header({ mode, onToggleMode }) {
               </IconButton>
             </Tooltip>
 
-            <Tooltip title={mode === 'light' ? 'Dark mode' : 'Light mode'}>
-              <IconButton onClick={onToggleMode} sx={{ display: { xs: 'none', sm: 'inline-flex' } }}>
-                {mode === 'light' ? <DarkMode /> : <LightMode />}
-              </IconButton>
-            </Tooltip>
-
             <Tooltip title="Profile">
-              <IconButton onClick={(e) => setProfileAnchor(e.currentTarget)} sx={{ display: { xs: 'none', sm: 'inline-flex' } }}>
-                <Avatar sx={{ width: 32, height: 32, bgcolor: 'primary.main', fontSize: 14 }}>NX</Avatar>
+              <IconButton 
+                onClick={(e) => setProfileAnchor(e.currentTarget)} 
+                sx={{ 
+                  display: { xs: 'none', sm: 'inline-flex' },
+                  p: 0.5,
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    transform: 'scale(1.1)',
+                  }
+                }}
+              >
+                <Avatar sx={{ 
+                  width: 32, 
+                  height: 32, 
+                  bgcolor: 'primary.main', 
+                  fontSize: 14,
+                  fontWeight: 600,
+                  transition: 'all 0.3s ease',
+                  '&:hover': {
+                    boxShadow: '0 0 10px rgba(80,132,196,0.6)',
+                  }
+                }}>M</Avatar>
               </IconButton>
             </Tooltip>
             <Menu
@@ -273,7 +321,7 @@ export default function Header({ mode, onToggleMode }) {
                 }}
               >
                 <SearchIcon fontSize="small" color="action" />
-                <InputBase autoFocus fullWidth placeholder="Search Nexora…" />
+                <InputBase autoFocus fullWidth placeholder="Search Markefied…" />
                 <IconButton size="small" onClick={() => setSearchOpen(false)}>
                   <CloseIcon fontSize="small" />
                 </IconButton>
@@ -292,7 +340,7 @@ export default function Header({ mode, onToggleMode }) {
       >
         <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', mb: 4 }}>
           <Typography variant="h6" sx={{ fontFamily: 'Fraunces, serif' }}>
-            Nexora
+            Markefied
           </Typography>
           <IconButton onClick={() => setMobileOpen(false)}>
             <CloseIcon />
@@ -321,7 +369,6 @@ export default function Header({ mode, onToggleMode }) {
         <Divider sx={{ my: 3 }} />
 
         <Box sx={{ display: 'flex', gap: 1, mb: 2 }}>
-          <IconButton onClick={onToggleMode}>{mode === 'light' ? <DarkMode /> : <LightMode />}</IconButton>
           <IconButton>
             <SearchIcon />
           </IconButton>

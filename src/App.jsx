@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Routes, Route, useLocation } from 'react-router-dom';
 import { ThemeProvider, CssBaseline } from '@mui/material';
 import getTheme from './theme';
@@ -11,23 +11,40 @@ import Home from './pages/Home';
 import About from './pages/About';
 import ServicesPage from './pages/Services';
 import Blog from './pages/Blog';
+import Contact from './pages/Contact';
 
 function ScrollToTopOnRoute() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
-  }, [pathname]);
+    if (hash) {
+      const scrollTarget = hash;
+      const element = document.querySelector(scrollTarget);
+      if (element) {
+        if (window.lenis) {
+          window.lenis.scrollTo(scrollTarget, { immediate: false });
+        } else {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+        return;
+      }
+    }
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: true });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
+    }
+  }, [pathname, hash]);
   return null;
 }
 
 export default function App() {
-  const [mode, setMode] = useState(() => {
-    const stored = window.matchMedia?.('(prefers-color-scheme: dark)').matches;
-    return stored ? 'dark' : 'light';
-  });
-
+  const mode = 'dark';
   const theme = useMemo(() => getTheme(mode), [mode]);
-  const toggleMode = () => setMode((m) => (m === 'light' ? 'dark' : 'light'));
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.documentElement.classList.add('dark');
+  }, []);
 
   useLenis();
 
@@ -35,12 +52,13 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ScrollToTopOnRoute />
-      <Header mode={mode} onToggleMode={toggleMode} />
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/blog" element={<Blog />} />
+        <Route path="/contact" element={<Contact />} />
         <Route
           path="*"
           element={

@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { Box, Container, Typography, Button, Chip, Stack } from '@mui/material';
 import { ArrowForward, PlayArrow } from '@mui/icons-material';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring } from 'framer-motion';
 import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 
@@ -167,7 +167,7 @@ export default function Banner() {
           inset: 0,
           zIndex: 0,
           background:
-            'linear-gradient(120deg, #FFFFFF 0%, #EEF5FF 35%, #E4EEFB 55%, #FFFFFF 100%)',
+            'linear-gradient(120deg, #0B0C10 0%, #121319 35%, #1A2B42 70%, #0B0C10 100%)',
           backgroundSize: '220% 220%',
           backgroundPosition: '0% 50%',
         }}
@@ -217,13 +217,11 @@ export default function Banner() {
                 overflow: 'hidden',
               }}
             >
-              {['Interfaces', 'that feel', 'genuinely alive.'].map((line, i) => (
+              {['We Help Businesses', 'Grow Online', 'Through Smart Ads.'].map((line, i) => (
                 <Box key={line} sx={{ overflow: 'hidden' }}>
                   <motion.div custom={i} variants={wordUp} initial="hidden" animate="show">
-                    {line.split(' ')[0] === 'that' ? (
-                      <span>
-                        that <span className="gradient-text">feel</span>
-                      </span>
+                    {line === 'Grow Online' ? (
+                      <span className="gradient-text">Grow Online</span>
                     ) : (
                       line
                     )}
@@ -234,8 +232,7 @@ export default function Banner() {
 
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.7 }}>
               <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, maxWidth: 480, mb: 4 }}>
-                Nexora is a design & engineering studio. We build products with the
-                craft of a boutique atelier and the speed of a software team.
+                We help brands increase visibility, generate quality leads, and scale faster with data-driven digital marketing strategies.
               </Typography>
             </motion.div>
 
@@ -245,19 +242,21 @@ export default function Banner() {
                   variant="contained"
                   color="primary"
                   size="large"
+                  onClick={() => window.location.href = '/contact'}
                   endIcon={<ArrowForward />}
                   sx={{ px: 4, py: 1.6, fontSize: 16, boxShadow: '0 14px 30px rgba(80,132,196,0.35)' }}
                 >
-                  Start a Project
+                  Get Free Consultation
                 </MagneticButton>
                 <MagneticButton
                   variant="outlined"
                   color="secondary"
                   size="large"
+                  onClick={() => window.location.href = '/services'}
                   startIcon={<PlayArrow />}
-                  sx={{ px: 4, py: 1.6, fontSize: 16, borderColor: 'rgba(17,17,17,0.15)' }}
+                  sx={{ px: 4, py: 1.6, fontSize: 16, borderColor: 'rgba(255,255,255,0.15)', color: '#fff' }}
                 >
-                  Watch Showreel
+                  View Services
                 </MagneticButton>
               </Stack>
             </motion.div>
@@ -280,20 +279,20 @@ export default function Banner() {
                   position: 'absolute',
                   inset: 0,
                   m: 'auto',
-                  width: { xs: 220, md: 300 },
-                  height: { xs: 280, md: 380 },
+                  width: { xs: 230, md: 320 },
+                  height: { xs: 290, md: 390 },
                   top: i * 24,
                   left: i * 28,
                   borderRadius: '24px',
                   background:
                     i === 0
-                      ? 'linear-gradient(160deg, rgba(255,255,255,0.7), rgba(238,245,255,0.4))'
+                      ? 'linear-gradient(165deg, rgba(18, 19, 25, 0.95), rgba(11, 12, 16, 0.9))'
                       : i === 1
-                      ? 'linear-gradient(160deg, #5084C4, #3A669F)'
-                      : 'linear-gradient(160deg, #111111, #2B2B2B)',
-                  border: '1px solid rgba(255,255,255,0.4)',
-                  backdropFilter: 'blur(20px)',
-                  boxShadow: '0 30px 60px rgba(17,17,17,0.18)',
+                      ? 'linear-gradient(165deg, rgba(255, 255, 255, 0.92), rgba(238, 245, 255, 0.85))'
+                      : 'linear-gradient(165deg, #111111 0%, #1A2B42 100%)',
+                  border: i === 1 ? '1px solid rgba(80,132,196,0.35)' : '1px solid rgba(255,255,255,0.08)',
+                  backdropFilter: 'blur(24px)',
+                  boxShadow: '0 30px 60px rgba(11,12,16,0.5)',
                   transformStyle: 'preserve-3d',
                   display: 'flex',
                   flexDirection: 'column',
@@ -302,16 +301,126 @@ export default function Banner() {
                   zIndex: 3 - i,
                 }}
               >
-                <Typography sx={{ color: i === 0 ? 'text.primary' : '#fff', fontWeight: 600, opacity: 0.85 }}>
-                  {i === 0 ? '01 · Discover' : i === 1 ? '02 · Design' : '03 · Ship'}
-                </Typography>
-                <Box
-                  sx={{
-                    height: 6,
-                    borderRadius: 3,
-                    background: i === 0 ? 'rgba(17,17,17,0.15)' : 'rgba(255,255,255,0.3)',
-                  }}
-                />
+                {i === 0 && (
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%' }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <Typography sx={{ fontSize: 11, fontWeight: 700, letterSpacing: 1, color: '#A7ACB9' }}>META ADS PERFORMANCE</Typography>
+                      <Box sx={{ width: 8, height: 8, borderRadius: '50%', bgcolor: '#4caf50', boxShadow: '0 0 8px #4caf50' }} />
+                    </Box>
+                    <Box sx={{ mt: 1 }}>
+                      <Typography variant="h4" sx={{ fontWeight: 800, color: '#fff', fontSize: '1.8rem', mb: 0.5 }}>+312%</Typography>
+                      <Typography sx={{ fontSize: 12, color: '#4caf50', fontWeight: 600 }}>Conversion Rate Growth</Typography>
+                    </Box>
+                    <Box sx={{ flexGrow: 1, minHeight: 60, display: 'flex', alignItems: 'flex-end', mb: 1, mt: 1 }}>
+                      <svg width="100%" height="80" style={{ overflow: 'visible' }}>
+                        <defs>
+                          <linearGradient id="gradient-meta" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#5084C4" stopOpacity="0.4"/>
+                            <stop offset="100%" stopColor="#5084C4" stopOpacity="0"/>
+                          </linearGradient>
+                        </defs>
+                        <path d="M0,70 Q30,45 60,60 T120,20 T180,35 T240,10" fill="none" stroke="#5084C4" strokeWidth="3" />
+                        <path d="M0,70 Q30,45 60,60 T120,20 T180,35 T240,10 L240,80 L0,80 Z" fill="url(#gradient-meta)" />
+                        <circle cx="240" cy="10" r="4" fill="#fff" stroke="#5084C4" strokeWidth="2" />
+                      </svg>
+                    </Box>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(255,255,255,0.08)', pt: 1.5 }}>
+                      <Box>
+                        <Typography sx={{ fontSize: 9, color: '#A7ACB9' }}>CPL</Typography>
+                        <Typography sx={{ fontSize: 12, fontWeight: 700, color: '#fff' }}>$2.45</Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontSize: 9, color: '#A7ACB9' }}>ROAS</Typography>
+                        <Typography sx={{ fontSize: 12, fontWeight: 700, color: '#4caf50' }}>4.8x</Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontSize: 9, color: '#A7ACB9' }}>Leads</Typography>
+                        <Typography sx={{ fontSize: 12, fontWeight: 700, color: '#fff' }}>1,840</Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+                )}
+
+                {i === 1 && (
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%' }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <Typography sx={{ fontSize: 11, fontWeight: 700, letterSpacing: 1, color: '#111111' }}>GOOGLE SEARCH ADS</Typography>
+                      <Typography sx={{ fontSize: 10, fontWeight: 700, color: '#5084C4', bgcolor: 'rgba(80,132,196,0.12)', px: 1, py: 0.2, borderRadius: 1 }}>Live</Typography>
+                    </Box>
+                    <Box sx={{ mt: 1 }}>
+                      <Typography variant="h4" sx={{ fontWeight: 800, color: '#111111', fontSize: '1.8rem', mb: 0.5 }}>$0.82</Typography>
+                      <Typography sx={{ fontSize: 12, color: '#4A4A52', fontWeight: 600 }}>Avg Cost Per Click (CPC)</Typography>
+                    </Box>
+                    <Box sx={{ flexGrow: 1, minHeight: 60, display: 'flex', alignItems: 'flex-end', gap: '8px', mb: 1, mt: 1 }}>
+                      {[25, 45, 30, 60, 50, 75, 95].map((h, idx) => (
+                        <Box
+                          key={idx}
+                          sx={{
+                            flexGrow: 1,
+                            height: `${h}%`,
+                            background: 'linear-gradient(to top, #5084C4, #7FA5D6)',
+                            borderRadius: '4px 4px 0 0',
+                          }}
+                        />
+                      ))}
+                    </Box>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', borderTop: '1px solid rgba(17,17,17,0.08)', pt: 1.5 }}>
+                      <Box>
+                        <Typography sx={{ fontSize: 9, color: '#4A4A52' }}>CTR</Typography>
+                        <Typography sx={{ fontSize: 12, fontWeight: 700, color: '#111111' }}>8.9%</Typography>
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontSize: 9, color: '#4A4A52' }}>Impressions</Typography>
+                        <Typography sx={{ fontSize: 12, fontWeight: 700, color: '#111111' }}>142k</Typography>
+                      </Box>
+                    </Box>
+                  </Box>
+                )}
+
+                {i === 2 && (
+                  <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2, height: '100%' }}>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <Typography sx={{ fontSize: 11, fontWeight: 700, letterSpacing: 1, color: 'rgba(255,255,255,0.6)' }}>ROI SUMMARY</Typography>
+                      <Typography sx={{ fontSize: 10, color: '#ffb300', fontWeight: 700 }}>HIGH TARGET</Typography>
+                    </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, flexGrow: 1, mt: 2 }}>
+                      <Box sx={{ width: 70, height: 70, position: 'relative' }}>
+                        <svg width="70" height="70" viewBox="0 0 36 36" style={{ transform: 'rotate(-90deg)' }}>
+                          <path
+                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                            fill="none"
+                            stroke="rgba(255,255,255,0.08)"
+                            strokeWidth="3.5"
+                          />
+                          <path
+                            d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                            fill="none"
+                            stroke="url(#gradient-roi)"
+                            strokeWidth="3.5"
+                            strokeDasharray="85, 100"
+                          />
+                          <defs>
+                            <linearGradient id="gradient-roi" x1="0" y1="0" x2="1" y2="1">
+                              <stop offset="0%" stopColor="#7FA5D6" />
+                              <stop offset="100%" stopColor="#5084C4" />
+                            </linearGradient>
+                          </defs>
+                        </svg>
+                        <Box sx={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                          <Typography sx={{ fontSize: 14, fontWeight: 800, color: '#fff' }}>85%</Typography>
+                        </Box>
+                      </Box>
+                      <Box>
+                        <Typography sx={{ fontSize: '1.4rem', fontWeight: 800, color: '#fff', mb: 0.2 }}>$48,250</Typography>
+                        <Typography sx={{ fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>Net Campaign Profit</Typography>
+                      </Box>
+                    </Box>
+                    <Box sx={{ borderTop: '1px solid rgba(255,255,255,0.08)', pt: 1.5, display: 'flex', alignItems: 'center', gap: 1 }}>
+                      <Box sx={{ width: 6, height: 6, borderRadius: '50%', bgcolor: '#4caf50' }} />
+                      <Typography sx={{ fontSize: 10, color: 'rgba(255,255,255,0.7)' }}>Campaign Optimization: Active</Typography>
+                    </Box>
+                  </Box>
+                )}
               </Box>
             ))}
           </Box>
