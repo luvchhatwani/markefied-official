@@ -102,22 +102,42 @@ export default function ServicesPage() {
             Why brands partner with Markefied
           </Typography>
           <Grid container spacing={4}>
-            {FEATURES.map((f, i) => {
-              const Icon = f.icon;
-              return (
-                <Grid item xs={12} sm={6} md={6} key={f.title}>
-                  <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
-                    <Box sx={{ textAlign: 'center' }}>
-                      <Box sx={{ width: 56, height: 56, borderRadius: '16px', bgcolor: 'background.paper', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2, boxShadow: 1, border: '1px solid rgba(255,255,255,0.06)' }}>
-                        <Icon size={24} color="#5084C4" />
+            <Grid item xs={12} sm={6}>
+              <Stack spacing={4}>
+                {FEATURES.slice(0, 2).map((f, i) => {
+                  const Icon = f.icon;
+                  return (
+                    <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
+                      <Box sx={{ textAlign: 'center' }}>
+                        <Box sx={{ width: 56, height: 56, borderRadius: '16px', bgcolor: 'background.paper', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2, boxShadow: 1, border: '1px solid rgba(255,255,255,0.06)' }}>
+                          <Icon size={24} color="#5084C4" />
+                        </Box>
+                        <Typography variant="h6" sx={{ mb: 1 }}>{f.title}</Typography>
+                        <Typography variant="body2" color="text.secondary">{f.text}</Typography>
                       </Box>
-                      <Typography variant="h6" sx={{ mb: 1 }}>{f.title}</Typography>
-                      <Typography variant="body2" color="text.secondary">{f.text}</Typography>
-                    </Box>
-                  </motion.div>
-                </Grid>
-              );
-            })}
+                    </motion.div>
+                  );
+                })}
+              </Stack>
+            </Grid>
+            <Grid item xs={12} sm={6}>
+              <Stack spacing={4}>
+                {FEATURES.slice(2, 4).map((f, i) => {
+                  const Icon = f.icon;
+                  return (
+                    <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: (i + 2) * 0.1 }}>
+                      <Box sx={{ textAlign: 'center' }}>
+                        <Box sx={{ width: 56, height: 56, borderRadius: '16px', bgcolor: 'background.paper', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2, boxShadow: 1, border: '1px solid rgba(255,255,255,0.06)' }}>
+                          <Icon size={24} color="#5084C4" />
+                        </Box>
+                        <Typography variant="h6" sx={{ mb: 1 }}>{f.title}</Typography>
+                        <Typography variant="body2" color="text.secondary">{f.text}</Typography>
+                      </Box>
+                    </motion.div>
+                  );
+                })}
+              </Stack>
+            </Grid>
           </Grid>
         </Container>
       </Box>
