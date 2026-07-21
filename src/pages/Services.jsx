@@ -96,48 +96,129 @@ export default function ServicesPage() {
       </Container>
 
       {/* Why choose us */}
-      <Box id="growth" sx={{ py: { xs: 8, md: 10 }, bgcolor: 'accent.main' }}>
-        <Container maxWidth="lg">
-          <Typography variant="h2" sx={{ fontSize: { xs: '1.8rem', md: '2.4rem' }, textAlign: 'center', mb: 5 }}>
-            Why brands partner with Markefied
-          </Typography>
-          <Grid container spacing={4}>
-            <Grid item xs={12} sm={6}>
-              <Stack spacing={4}>
-                {FEATURES.slice(0, 2).map((f, i) => {
-                  const Icon = f.icon;
-                  return (
-                    <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
-                      <Box sx={{ textAlign: 'center' }}>
-                        <Box sx={{ width: 56, height: 56, borderRadius: '16px', bgcolor: 'background.paper', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2, boxShadow: 1, border: '1px solid rgba(255,255,255,0.06)' }}>
-                          <Icon size={24} color="#5084C4" />
-                        </Box>
-                        <Typography variant="h6" sx={{ mb: 1 }}>{f.title}</Typography>
-                        <Typography variant="body2" color="text.secondary">{f.text}</Typography>
+      <Box id="growth" sx={{ py: { xs: 10, md: 14 }, bgcolor: 'accent.main' }}>
+        <Container maxWidth="md">
+          <Box sx={{ textAlign: 'center', mb: 6 }}>
+            {/* Eyebrow */}
+            <Typography
+              component="span"
+              sx={{
+                color: 'primary.main',
+                fontWeight: 700,
+                textTransform: 'uppercase',
+                fontSize: '0.85rem',
+                letterSpacing: '0.15em',
+                display: 'block',
+                mb: 1.5,
+              }}
+            >
+              WHY CHOOSE MARKEFIED
+            </Typography>
+
+            {/* Main Heading */}
+            <Typography
+              variant="h2"
+              sx={{
+                fontSize: { xs: '2rem', sm: '2.5rem', md: '2.8rem' },
+                fontWeight: 500,
+                fontFamily: 'Fraunces, serif',
+                lineHeight: 1.2,
+                mb: 2.5,
+                color: 'text.primary',
+              }}
+            >
+              Performance Marketing That Actually Grows Your Business
+            </Typography>
+
+            {/* Description */}
+            <Typography
+              variant="body1"
+              color="text.secondary"
+              sx={{
+                fontSize: '1.05rem',
+                lineHeight: 1.7,
+                mb: 4,
+                maxWidth: '700px',
+                mx: 'auto',
+              }}
+            >
+              At Markefied, every campaign is built with strategy, creativity, and data at its core. We don't chase vanity metrics—we focus on measurable business growth through high-converting advertising, audience research, and continuous optimization. Our goal is simple: generate more qualified leads, increase conversions, and maximize your return on investment.
+            </Typography>
+
+            {/* Highlight Badges */}
+            <Stack
+              direction="row"
+              spacing={1.5}
+              useFlexGap
+              flexWrap="wrap"
+              justifyContent="center"
+              sx={{ mb: 6 }}
+            >
+              {['Performance Focused', 'Certified Experts', 'Live Reporting', 'ROI Driven'].map((label) => (
+                <Chip
+                  key={label}
+                  label={label}
+                  sx={{
+                    bgcolor: 'rgba(80, 132, 196, 0.08)',
+                    color: 'primary.light',
+                    border: '1px solid rgba(80, 132, 196, 0.2)',
+                    fontWeight: 600,
+                    fontSize: '0.85rem',
+                    py: 2,
+                    px: 1,
+                    transition: 'all 0.3s ease',
+                    '&:hover': {
+                      bgcolor: 'rgba(80, 132, 196, 0.15)',
+                      borderColor: 'primary.main',
+                      transform: 'translateY(-2px)'
+                    }
+                  }}
+                />
+              ))}
+            </Stack>
+          </Box>
+
+          {/* Existing Four Feature Cards */}
+          <Grid container spacing={4} justifyContent="center">
+            {FEATURES.map((f, i) => {
+              const Icon = f.icon;
+              return (
+                <Grid item xs={12} sm={6} key={f.title}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: i * 0.1 }}
+                  >
+                    <Box sx={{ textAlign: 'center' }}>
+                      <Box
+                        sx={{
+                          width: 56,
+                          height: 56,
+                          borderRadius: '16px',
+                          bgcolor: 'background.paper',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          mx: 'auto',
+                          mb: 2,
+                          boxShadow: 1,
+                          border: '1px solid rgba(255, 255, 255, 0.06)',
+                        }}
+                      >
+                        <Icon size={24} color="#5084C4" />
                       </Box>
-                    </motion.div>
-                  );
-                })}
-              </Stack>
-            </Grid>
-            <Grid item xs={12} sm={6}>
-              <Stack spacing={4}>
-                {FEATURES.slice(2, 4).map((f, i) => {
-                  const Icon = f.icon;
-                  return (
-                    <motion.div key={f.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: (i + 2) * 0.1 }}>
-                      <Box sx={{ textAlign: 'center' }}>
-                        <Box sx={{ width: 56, height: 56, borderRadius: '16px', bgcolor: 'background.paper', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2, boxShadow: 1, border: '1px solid rgba(255,255,255,0.06)' }}>
-                          <Icon size={24} color="#5084C4" />
-                        </Box>
-                        <Typography variant="h6" sx={{ mb: 1 }}>{f.title}</Typography>
-                        <Typography variant="body2" color="text.secondary">{f.text}</Typography>
-                      </Box>
-                    </motion.div>
-                  );
-                })}
-              </Stack>
-            </Grid>
+                      <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>
+                        {f.title}
+                      </Typography>
+                      <Typography variant="body2" color="text.secondary" sx={{ lineHeight: 1.6 }}>
+                        {f.text}
+                      </Typography>
+                    </Box>
+                  </motion.div>
+                </Grid>
+              );
+            })}
           </Grid>
         </Container>
       </Box>
