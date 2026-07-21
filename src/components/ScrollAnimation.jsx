@@ -43,8 +43,8 @@ export default function ScrollAnimation() {
         });
       },
       {
-        threshold: 0.02,
-        rootMargin: '0px 0px -20px 0px',
+        threshold: 0,
+        rootMargin: '-10% 0px -10% 0px',
       }
     );
 
