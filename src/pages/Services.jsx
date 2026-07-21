@@ -1,7 +1,7 @@
 import { Box, Container, Typography, Grid, Chip, Button, Card, CardContent, Accordion, AccordionSummary, AccordionDetails, Divider, Stack } from '@mui/material';
 import { ExpandMore, Check, ArrowForward } from '@mui/icons-material';
 import { motion } from 'framer-motion';
-import { Share2, Search, Target, ShieldCheck, Zap } from 'lucide-react';
+import { Share2, Search, Target, ShieldCheck, Zap, BarChart3 } from 'lucide-react';
 
 const ALL_SERVICES = [
   { id: 'smm', icon: Share2, title: 'Social Media Marketing', text: 'Grow your audience and build a strong brand presence across Instagram, Facebook, LinkedIn, and other platforms.' },
@@ -13,6 +13,7 @@ const FEATURES = [
   { icon: Zap, title: 'Performance Driven', text: 'We focus entirely on metrics that matter — leads, conversions, and customer acquisition cost.' },
   { icon: ShieldCheck, title: 'Expert Advertisers', text: 'No junior accounts managers. Your campaigns are run by certified advertising specialists.' },
   { icon: Check, title: 'Transparent ROI Dashboards', text: 'Live custom marketing reports so you always know exactly where your spend goes.' },
+  { icon: BarChart3, title: 'Data-Driven Strategy', text: 'Every campaign is backed by audience insights, market research, and real-time analytics to maximize growth and long-term success.' },
 ];
 
 const PLANS = [
@@ -104,7 +105,7 @@ export default function ServicesPage() {
             {FEATURES.map((f, i) => {
               const Icon = f.icon;
               return (
-                <Grid item xs={12} md={4} key={f.title}>
+                <Grid item xs={12} sm={6} md={6} key={f.title}>
                   <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: i * 0.1 }}>
                     <Box sx={{ textAlign: 'center' }}>
                       <Box sx={{ width: 56, height: 56, borderRadius: '16px', bgcolor: 'background.paper', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto', mb: 2, boxShadow: 1, border: '1px solid rgba(255,255,255,0.06)' }}>
