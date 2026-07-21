@@ -77,3 +77,31 @@ html.lenis body {
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
+
+/* Scroll Animation Styles */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  /* Instant reset (no transition/delay) when elements exit the viewport */
+  transition: opacity 0s, transform 0s;
+  will-change: opacity, transform;
+}
+
+.scroll-animate.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  /* Smooth animation when entering the viewport, with a dynamic stagger delay */
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+  transition-delay: calc(var(--stagger-index, 0) * 100ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-animate,
+  .scroll-animate.is-visible {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+    transition-delay: 0s !important;
+  }
+}
+

@@ -6,6 +6,7 @@ import useLenis from './hooks/useLenis';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollAnimation from './components/ScrollAnimation';
 
 import Home from './pages/Home';
 import About from './pages/About';
@@ -52,6 +53,7 @@ export default function App() {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ScrollToTopOnRoute />
+      <ScrollAnimation />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
