@@ -34,7 +34,7 @@ const SERVICE_LINKS = [
 
 const SOCIALS = [
   { icon: FiTwitter, label: 'X (Twitter)', href: 'https://twitter.com' },
-  { icon: FiInstagram, label: 'Instagram', href: 'https://www.instagram.com/markefiedofficial/' },
+  { icon: FiInstagram, label: 'Instagram', href: 'https://www.instagram.com/markefiedofficial/'},
   { icon: FiLinkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
   { icon: FiFacebook, label: 'Facebook', href: 'https://facebook.com' },
 ];
