@@ -82,6 +82,8 @@ function TiltCard({ service, index }) {
               p: 3.5,
               display: 'flex',
               flexDirection: 'column',
+              alignItems: 'center',
+              textAlign: 'center',
               gap: 2,
             }}
           >
@@ -94,6 +96,7 @@ function TiltCard({ service, index }) {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
+                mx: 'auto',
               }}
             >
               <Icon size={24} color="#5084C4" strokeWidth={1.75} />
@@ -106,7 +109,7 @@ function TiltCard({ service, index }) {
               endIcon={<ArrowOutward sx={{ fontSize: 16 }} />}
               onClick={() => window.location.href = `/services#${service.id}`}
               sx={{
-                alignSelf: 'flex-start',
+                alignSelf: 'center',
                 px: 0,
                 fontWeight: 600,
                 color: 'primary.main',
@@ -126,7 +129,7 @@ export default function Services() {
   return (
     <Box component="section" sx={{ py: { xs: 10, md: 14 }, bgcolor: 'background.default' }}>
       <Container maxWidth="lg">
-        <Box sx={{ maxWidth: 620, mb: 7 }}>
+        <Box sx={{ maxWidth: 620, mb: 7, mx: 'auto', textAlign: 'center' }}>
           <Chip label="What We Do" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600 }} />
           <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.75rem' }, mb: 2, fontFamily: 'Fraunces, serif', fontWeight: 500 }}>
             Three Core Disciplines. One Growth Engine.

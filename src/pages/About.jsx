@@ -55,25 +55,23 @@ export default function About() {
   return (
     <Box component="main" sx={{ pt: { xs: 14, md: 18 }, bgcolor: 'background.default', color: 'text.primary' }}>
       {/* Intro Grid */}
-      <Container maxWidth="lg" sx={{ mb: { xs: 8, md: 12 } }}>
-        <Grid container spacing={6} alignItems="center">
-          <Grid item xs={12} md={6}>
-            <Box sx={{ textAlign: 'left' }}>
-              <Chip label="About Markefied" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600 }} />
-              <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-                <Typography variant="h1" sx={{ fontSize: { xs: '2.4rem', md: '3.4rem' }, mb: 3, fontFamily: 'Fraunces, serif', lineHeight: 1.15, fontWeight: 500 }}>
-                  A Team Dedicated to Your Revenue Growth.
-                </Typography>
-              </motion.div>
-              <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.05rem', lineHeight: 1.7, mb: 3 }}>
-                At Markefied, we believe digital marketing shouldn't be a mystery. We are a specialized team of advertising buyers, copywriters, and marketing strategists who partner with growing brands to build predictable lead and sales pipelines.
+      <Container maxWidth="md" sx={{ mb: { xs: 8, md: 12 } }}>
+        <Box sx={{ textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 4 }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Chip label="About Markefied" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600 }} />
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
+              <Typography variant="h1" sx={{ fontSize: { xs: '2.4rem', md: '3.4rem' }, mb: 3, fontFamily: 'Fraunces, serif', lineHeight: 1.15, fontWeight: 500 }}>
+                A Team Dedicated to Your Revenue Growth.
               </Typography>
-              <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.05rem', lineHeight: 1.7 }}>
-                We don't focus on fluff or vanity metrics. Instead, we direct our attention to the metrics that compound your bottom line — optimizing paid ad campaigns, decreasing customer acquisition costs, and maximizing ROAS.
-              </Typography>
-            </Box>
-          </Grid>
-          <Grid item xs={12} md={6}>
+            </motion.div>
+            <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.05rem', lineHeight: 1.7, mb: 3 }}>
+              At Markefied, we believe digital marketing shouldn't be a mystery. We are a specialized team of advertising buyers, copywriters, and marketing strategists who partner with growing brands to build predictable lead and sales pipelines.
+            </Typography>
+            <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.05rem', lineHeight: 1.7 }}>
+              We don't focus on fluff or vanity metrics. Instead, we direct our attention to the metrics that compound your bottom line — optimizing paid ad campaigns, decreasing customer acquisition costs, and maximizing ROAS.
+            </Typography>
+          </Box>
+          <Box sx={{ width: '100%' }}>
             <motion.div
               initial={{ opacity: 0, scale: 0.96 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -85,7 +83,7 @@ export default function About() {
                   position: 'relative',
                   borderRadius: '28px',
                   overflow: 'hidden',
-                  height: { xs: 280, md: 420 },
+                  height: { xs: 280, md: 450 },
                   boxShadow: '0 20px 48px rgba(0,0,0,0.4)',
                   border: '1px solid rgba(255,255,255,0.06)',
                 }}
@@ -106,8 +104,8 @@ export default function About() {
                 />
               </Box>
             </motion.div>
-          </Grid>
-        </Grid>
+          </Box>
+        </Box>
       </Container>
 
       {/* Mission / Vision */}
@@ -115,7 +113,7 @@ export default function About() {
         <Grid container spacing={4} alignItems="stretch">
           <Grid item xs={12} md={6}>
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ height: '100%' }}>
-              <Box sx={{ p: { xs: 4, md: 5 }, borderRadius: '24px', bgcolor: 'background.paper', border: '1px solid rgba(255,255,255,0.06)', height: '100%' }}>
+              <Box sx={{ p: { xs: 4, md: 5 }, borderRadius: '24px', bgcolor: 'background.paper', border: '1px solid rgba(255,255,255,0.06)', height: '100%', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                 <Typography variant="h5" sx={{ mb: 2, fontWeight: 600, color: 'primary.main', fontFamily: 'Fraunces, serif' }}>
                   Our Mission
                 </Typography>
@@ -127,7 +125,7 @@ export default function About() {
           </Grid>
           <Grid item xs={12} md={6}>
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} style={{ height: '100%' }}>
-              <Box sx={{ p: { xs: 4, md: 5 }, borderRadius: '24px', bgcolor: 'secondary.main', color: '#fff', border: '1px solid rgba(255,255,255,0.08)', height: '100%' }}>
+              <Box sx={{ p: { xs: 4, md: 5 }, borderRadius: '24px', bgcolor: 'secondary.main', color: '#fff', border: '1px solid rgba(255,255,255,0.08)', height: '100%', textAlign: 'center', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                 <Typography variant="h5" sx={{ mb: 2, fontWeight: 600, color: 'primary.light', fontFamily: 'Fraunces, serif' }}>
                   Our Vision
                 </Typography>

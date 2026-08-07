@@ -34,7 +34,7 @@ const SERVICE_LINKS = [
 
 const SOCIALS = [
   { icon: FiTwitter, label: 'X (Twitter)', href: 'https://twitter.com' },
-  { icon: FiInstagram, label: 'Instagram', href: 'https://instagram.com' },
+  { icon: FiInstagram, label: 'Instagram', href: 'https://www.instagram.com/markefiedofficial/' },
   { icon: FiLinkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
   { icon: FiFacebook, label: 'Facebook', href: 'https://facebook.com' },
 ];
@@ -57,9 +57,9 @@ export default function Footer() {
   return (
     <Box component="footer" sx={{ bgcolor: 'secondary.main', color: '#fff', pt: { xs: 8, md: 10 }, position: 'relative' }}>
       <Container maxWidth="lg">
-        <Grid container spacing={6}>
-          <Grid item xs={12} md={4}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2 }}>
+        <Grid container spacing={6} justifyContent="center">
+          <Grid item xs={12} md={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
+            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2, justifyContent: 'center' }}>
               <Box
                 component="img"
                 src="/logo.png"
@@ -78,7 +78,7 @@ export default function Footer() {
             <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.65)', maxWidth: 300, mb: 3 }}>
               A modern digital marketing agency focused on helping brands grow digitally.
             </Typography>
-            <Stack direction="row" spacing={1}>
+            <Stack direction="row" spacing={1} justifyContent="center">
               {SOCIALS.map(({ icon: Icon, label, href }) => (
                 <IconButton
                   key={label}
@@ -99,11 +99,11 @@ export default function Footer() {
             </Stack>
           </Grid>
 
-          <Grid item xs={6} md={2}>
+          <Grid item xs={12} sm={6} md={2} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
             <Typography variant="subtitle2" sx={{ mb: 2, color: 'rgba(255,255,255,0.5)', letterSpacing: 1 }}>
               QUICK LINKS
             </Typography>
-            <Stack spacing={1.2}>
+            <Stack spacing={1.2} alignItems="center">
               {QUICK_LINKS.map((l) => (
                 <Typography
                   key={l.label}
@@ -118,11 +118,11 @@ export default function Footer() {
             </Stack>
           </Grid>
 
-          <Grid item xs={6} md={2}>
+          <Grid item xs={12} sm={6} md={2} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
             <Typography variant="subtitle2" sx={{ mb: 2, color: 'rgba(255,255,255,0.5)', letterSpacing: 1 }}>
               SERVICES
             </Typography>
-            <Stack spacing={1.2}>
+            <Stack spacing={1.2} alignItems="center">
               {SERVICE_LINKS.map((l) => (
                 <Typography
                   key={l.label}
@@ -137,11 +137,11 @@ export default function Footer() {
             </Stack>
           </Grid>
 
-          <Grid item xs={12} md={4}>
+          <Grid item xs={12} md={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
             <Typography variant="subtitle2" sx={{ mb: 2, color: 'rgba(255,255,255,0.5)', letterSpacing: 1 }}>
               STAY IN THE LOOP
             </Typography>
-            <Box component="form" onSubmit={handleSubscribe} sx={{ display: 'flex', gap: 1, mb: 3 }}>
+            <Box component="form" onSubmit={handleSubscribe} sx={{ display: 'flex', gap: 1, mb: 3, width: '100%', maxWidth: 360, justifyContent: 'center' }}>
               <TextField
                 size="small"
                 placeholder="you@company.com"
@@ -166,20 +166,20 @@ export default function Footer() {
                 Subscribe
               </Button>
             </Box>
-            <Stack spacing={1}>
-              <Stack direction="row" spacing={1} alignItems="center">
+            <Stack spacing={1} alignItems="center">
+              <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
                 <FiMail size={15} color="rgba(255,255,255,0.6)" />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)' }}>
                   hello@markefied.com
                 </Typography>
               </Stack>
-              <Stack direction="row" spacing={1} alignItems="center">
+              <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
                 <FiPhone size={15} color="rgba(255,255,255,0.6)" />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)' }}>
                   +1 (415) 555-0176
                 </Typography>
               </Stack>
-              <Stack direction="row" spacing={1} alignItems="center">
+              <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
                 <FiMapPin size={15} color="rgba(255,255,255,0.6)" />
                 <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)' }}>
                   San Francisco, CA

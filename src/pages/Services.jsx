@@ -79,8 +79,8 @@ export default function ServicesPage() {
                   viewport={{ once: true, amount: 0.3 }}
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                 >
-                  <Card variant="outlined" sx={{ p: 3, height: '100%', borderRadius: '20px', display: 'flex', gap: 2.5, alignItems: 'flex-start', bgcolor: 'background.paper', borderColor: 'rgba(255,255,255,0.06)' }}>
-                    <Box sx={{ width: 48, height: 48, borderRadius: '14px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                  <Card variant="outlined" sx={{ p: 3, height: '100%', borderRadius: '20px', display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 2.5, bgcolor: 'background.paper', borderColor: 'rgba(255,255,255,0.06)' }}>
+                    <Box sx={{ width: 48, height: 48, borderRadius: '14px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyContent: 'center', mx: 'auto' }}>
                       <Icon size={22} color="#5084C4" />
                     </Box>
                     <Box>
@@ -260,19 +260,19 @@ export default function ServicesPage() {
                   {plan.highlighted && (
                     <Chip label="Most Popular" color="primary" size="small" sx={{ position: 'absolute', top: 20, right: 20, fontWeight: 600 }} />
                   )}
-                  <CardContent sx={{ p: 3, display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between' }}>
-                    <Box>
+                  <CardContent sx={{ p: 3, display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'space-between', alignItems: 'center', textAlign: 'center' }}>
+                    <Box sx={{ width: '100%' }}>
                       <Typography variant="h6" sx={{ mb: 1, fontWeight: 600 }}>{plan.name}</Typography>
                       <Typography variant="body2" color="text.secondary" sx={{ mb: 3, minHeight: 40 }}>
                         {plan.description}
                       </Typography>
-                      <Box sx={{ display: 'flex', alignItems: 'baseline', gap: 0.5, mb: 3 }}>
+                      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'baseline', gap: 0.5, mb: 3 }}>
                         <Typography variant="h3" sx={{ fontFamily: 'Fraunces, serif', fontWeight: 600 }}>{plan.price}</Typography>
                         <Typography variant="body2" color="text.secondary">{plan.period}</Typography>
                       </Box>
-                      <Stack spacing={1.2} sx={{ mb: 4 }}>
+                      <Stack spacing={1.2} sx={{ mb: 4, alignItems: 'center' }}>
                         {plan.features.map((f) => (
-                          <Stack direction="row" spacing={1} alignItems="center" key={f}>
+                          <Stack direction="row" spacing={1} alignItems="center" justifyContent="center" key={f}>
                             <Check sx={{ fontSize: 18, color: 'primary.main' }} />
                             <Typography variant="body2">{f}</Typography>
                           </Stack>

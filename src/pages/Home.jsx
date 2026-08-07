@@ -169,7 +169,7 @@ export default function Home() {
                         }
                       }}
                     >
-                      <Box sx={{ display: 'flex', gap: 3, alignItems: 'flex-start' }}>
+                      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', gap: 2.5 }}>
                         <Box sx={{
                           width: 52,
                           height: 52,
@@ -178,7 +178,6 @@ export default function Home() {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          flexShrink: 0
                         }}>
                           <Icon size={24} color="#5084C4" />
                         </Box>
@@ -219,7 +218,7 @@ export default function Home() {
                   transition={{ duration: 0.5, delay: i * 0.08 }}
                   style={{ height: '100%' }}
                 >
-                  <Box sx={{ position: 'relative', p: 4, borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)', bgcolor: 'background.default', height: '100%', transition: 'all 0.3s ease', '&:hover': { borderColor: 'primary.main', transform: 'translateY(-4px)' } }}>
+                  <Box sx={{ position: 'relative', p: 4, borderRadius: '24px', border: '1px solid rgba(255,255,255,0.05)', bgcolor: 'background.default', height: '100%', textAlign: 'center', transition: 'all 0.3s ease', '&:hover': { borderColor: 'primary.main', transform: 'translateY(-4px)' } }}>
                     {i < 3 && (
                       <Box
                         sx={{
@@ -311,9 +310,9 @@ export default function Home() {
                       <Typography variant="h5" sx={{ fontStyle: 'italic', fontWeight: 400, px: { md: 4 }, fontFamily: 'Fraunces, serif' }}>
                         “{t.quote}”
                       </Typography>
-                      <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, mt: 1 }}>
+                      <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 1.5, mt: 1 }}>
                         <Avatar src={t.avatar} sx={{ width: 44, height: 44, border: '2px solid #5084C4' }}>{t.name[0]}</Avatar>
-                        <Box sx={{ textAlign: 'left' }}>
+                        <Box sx={{ textAlign: 'center' }}>
                           <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>{t.name}</Typography>
                           <Typography variant="caption" color="text.secondary">
                             {t.role}

@@ -129,24 +129,24 @@ export default function Blog() {
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
           <Card sx={{ borderRadius: '28px', overflow: 'hidden', display: { xs: 'block', md: 'flex' }, bgcolor: 'background.paper', border: '1px solid rgba(255,255,255,0.06)' }} elevation={2}>
             <CardMedia sx={{ flex: 1.2, minHeight: { xs: 240, md: 380 }, backgroundImage: `url(${FEATURED.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }} />
-            <CardContent sx={{ flex: 1, p: { xs: 4, md: 5 }, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-              <Chip label="Featured Article" size="small" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600, alignSelf: 'flex-start' }} />
+            <CardContent sx={{ flex: 1, p: { xs: 4, md: 5 }, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', textAlign: 'center' }}>
+              <Chip label="Featured Article" size="small" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600, alignSelf: 'center' }} />
               <Typography variant="h4" sx={{ mb: 2, fontSize: { xs: '1.5rem', md: '1.9rem' }, fontFamily: 'Fraunces, serif', fontWeight: 600 }}>
                 {FEATURED.title}
               </Typography>
               <Typography variant="body1" color="text.secondary" sx={{ mb: 3, lineHeight: 1.6 }}>
                 {FEATURED.excerpt}
               </Typography>
-              <Stack direction="row" spacing={1.5} alignItems="center" sx={{ mb: 3 }}>
+              <Stack direction="row" spacing={1.5} alignItems="center" justifyContent="center" sx={{ mb: 3 }}>
                 <Avatar sx={{ bgcolor: 'primary.main', fontWeight: 600 }}>{FEATURED.author[0]}</Avatar>
-                <Box>
+                <Box sx={{ textAlign: 'left' }}>
                   <Typography variant="subtitle2" sx={{ fontWeight: 600 }}>{FEATURED.author}</Typography>
                   <Typography variant="caption" color="text.secondary">
                     {FEATURED.role} · {FEATURED.date} · {FEATURED.read}
                   </Typography>
                 </Box>
               </Stack>
-              <Button variant="contained" color="primary" sx={{ alignSelf: 'flex-start', px: 4 }} endIcon={<ArrowForward />}>
+              <Button variant="contained" color="primary" sx={{ alignSelf: 'center', px: 4 }} endIcon={<ArrowForward />}>
                 Read Article
               </Button>
             </CardContent>
@@ -156,8 +156,8 @@ export default function Blog() {
 
       {/* Filters */}
       <Container maxWidth="lg" sx={{ mb: 4 }}>
-        <Box sx={{ display: 'flex', flexDirection: { xs: 'column', sm: 'row' }, justifyContent: 'space-between', gap: 2, alignItems: { sm: 'center' } }}>
-          <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap>
+        <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3 }}>
+          <Stack direction="row" spacing={1} flexWrap="wrap" useFlexGap justifyContent="center">
             {CATEGORIES.map((cat) => (
               <Chip
                 key={cat}
@@ -187,7 +187,9 @@ export default function Blog() {
               borderRadius: 3,
               px: 2,
               py: 0.5,
-              minWidth: { sm: 260 },
+              width: '100%',
+              maxWidth: 360,
+              mx: 'auto',
             }}
           >
             <Search fontSize="small" color="action" />
