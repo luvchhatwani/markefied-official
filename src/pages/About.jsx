@@ -154,7 +154,7 @@ export default function About() {
         <Typography variant="h2" sx={{ fontSize: { xs: '1.8rem', md: '2.4rem' }, textAlign: 'center', mb: 6, fontFamily: 'Fraunces, serif' }}>
           How we got here
         </Typography>
-        <Timeline position="alternate">
+        <Timeline position="alternate" sx={{ p: { xs: 0, sm: 2 } }}>
           {TIMELINE.map((item, i) => (
             <TimelineItem key={item.year}>
               <TimelineOppositeContent color="text.secondary" sx={{ fontWeight: 600, py: 2 }}>

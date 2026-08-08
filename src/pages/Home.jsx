@@ -371,15 +371,15 @@ export default function Home() {
       <Box sx={{ py: { xs: 10, md: 14 } }}>
         <Container maxWidth="lg">
           <Grid container spacing={6} alignItems="center">
-            <Grid item xs={12} md={5}>
+            <Grid item xs={12} md={5} sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' }, textAlign: { xs: 'center', md: 'left' } }}>
               <Chip label="Contact Us" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600 }} />
               <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.6rem' }, mb: 2 }}>
                 Let's scale your digital footprint.
               </Typography>
-              <Typography color="text.secondary" sx={{ mb: 4 }}>
+              <Typography color="text.secondary" sx={{ mb: 4, maxWidth: { xs: 480, md: 'none' } }}>
                 Schedule a strategy session with Markefied today. Tell us about your goals and we'll reply within one business day with a customized marketing audit.
               </Typography>
-              <Stack spacing={2.5} sx={{ mt: 3 }}>
+              <Stack spacing={2.5} sx={{ mt: 3, width: '100%', maxWidth: 480 }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 2, borderRadius: '16px', bgcolor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)', transition: 'all 0.3s', '&:hover': { transform: 'translateX(6px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' } }}>
                   <Box sx={{ width: 44, height: 44, borderRadius: '12px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center' }}>
                     <Mail size={20} color="#5084C4" />

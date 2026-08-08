@@ -193,16 +193,14 @@ export default function Banner() {
       <Container maxWidth="lg" sx={{ position: 'relative', zIndex: 2 }}>
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', md: '1.1fr 0.9fr' },
             alignItems: 'center',
-            textAlign: 'center',
-            gap: { xs: 6, md: 8 },
-            py: { xs: 6, md: 8 },
+            gap: { xs: 6, md: 4 },
           }}
         >
           {/* Text content */}
-          <Box ref={tiltRef} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Box ref={tiltRef} sx={{ display: 'flex', flexDirection: 'column', alignItems: { xs: 'center', md: 'flex-start' }, textAlign: { xs: 'center', md: 'left' } }}>
             <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
               <Chip
                 label="Awwwards Site of the Day · 2026"
@@ -233,13 +231,13 @@ export default function Banner() {
             </Typography>
 
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.7 }}>
-              <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, maxWidth: 640, mb: 4, mx: 'auto', textAlign: 'center' }}>
+              <Typography variant="h6" color="text.secondary" sx={{ fontWeight: 400, maxWidth: 480, mb: 4, mx: { xs: 'auto', md: 0 } }}>
                 We help brands increase visibility, generate quality leads, and scale faster with data-driven digital marketing strategies.
               </Typography>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1, duration: 0.7 }}>
-              <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap justifyContent="center">
+              <Stack direction="row" spacing={2} flexWrap="wrap" useFlexGap justifyContent={{ xs: 'center', md: 'flex-start' }}>
                 <MagneticButton
                   variant="contained"
                   color="primary"
@@ -269,10 +267,7 @@ export default function Banner() {
             ref={stageRef}
             sx={{
               position: 'relative',
-              height: { xs: 340, md: 450 },
-              width: '100%',
-              maxWidth: { xs: 286, md: 376 },
-              mx: 'auto',
+              height: { xs: 340, md: 480 },
               perspective: '1400px',
             }}
           >

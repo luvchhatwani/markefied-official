@@ -45,7 +45,7 @@ export default function Contact() {
                 Ready to dominate your market? Fill out the form or reach out directly to schedule a free consultation with our digital marketing specialists.
               </Typography>
 
-              <Stack spacing={3} sx={{ mb: 5, width: '100%', maxWidth: 480 }}>
+              <Stack spacing={3} sx={{ mb: 5, width: '100%', maxWidth: 480, mx: 'auto' }}>
                 <Box sx={{ display: 'flex', alignItems: 'center', gap: 2.5, p: 2, borderRadius: '16px', bgcolor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)', transition: 'all 0.3s', '&:hover': { transform: 'translateY(-4px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' } }}>
                   <Box sx={{ width: 48, height: 48, borderRadius: '14px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'primary.main', flexShrink: 0 }}>
                     <Mail />

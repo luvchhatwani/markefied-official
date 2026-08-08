@@ -97,7 +97,7 @@ export default function ServicesPage() {
 
       {/* Why choose us */}
       <Box id="growth" sx={{ py: { xs: 10, md: 14 }, bgcolor: 'accent.main' }}>
-        <Container maxWidth="md">
+        <Container maxWidth="lg">
           <Box sx={{ textAlign: 'center', mb: 6 }}>
             {/* Eyebrow */}
             <Typography
