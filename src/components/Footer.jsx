@@ -56,7 +56,7 @@ export default function Footer() {
 
   return (
     <Box component="footer" sx={{ bgcolor: 'secondary.main', color: '#fff', pt: { xs: 8, md: 10 }, position: 'relative' }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" className="footer-container">
         <Grid container spacing={6} justifyContent="center">
           <Grid item xs={12} md={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
             <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2, justifyContent: 'center' }}>

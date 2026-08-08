@@ -3,11 +3,16 @@
 }
 
 html,
-body {
+body,
+#root {
+  width: 100%;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  scroll-behavior: auto;
+}
+
+body {
+  min-width: 320px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -82,7 +87,6 @@ html.lenis body {
 .scroll-animate {
   opacity: 0;
   transform: translateY(30px);
-  /* Instant reset (no transition/delay) when elements exit the viewport */
   transition: opacity 0s, transform 0s;
   will-change: opacity, transform;
 }
@@ -90,7 +94,6 @@ html.lenis body {
 .scroll-animate.is-visible {
   opacity: 1;
   transform: translateY(0);
-  /* Smooth animation when entering the viewport, with a dynamic stagger delay */
   transition: opacity 0.8s ease-out, transform 0.8s ease-out;
   transition-delay: calc(var(--stagger-index, 0) * 100ms);
 }
@@ -105,3 +108,190 @@ html.lenis body {
   }
 }
 
+/* ================================
+   MAIN SECTION WRAPPER & LAYOUT
+================================ */
+
+.section-container,
+.section-inner,
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ================================
+   MUI GRID ALIGNMENT
+================================ */
+
+.MuiGrid-container {
+  width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+}
+
+.MuiGrid-container > .MuiGrid-item {
+  display: flex;
+  justify-content: center;
+}
+
+/* ================================
+   CARDS
+================================ */
+
+.cards-grid {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto !important;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+
+  justify-content: center;
+  align-items: stretch;
+}
+
+.cards-grid > * {
+  width: 100%;
+  min-width: 0;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+/* ================================
+   SECTION HEADINGS
+================================ */
+
+.section-title,
+.section-heading {
+  width: 100%;
+  max-width: 800px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+}
+
+.section-description {
+  width: 100%;
+  max-width: 700px;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  text-align: center;
+}
+
+/* ================================
+   TWO COLUMN SECTIONS
+================================ */
+
+.two-column-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+
+  align-items: center;
+}
+
+/* ================================
+   CONTACT SECTION
+================================ */
+
+.contact-section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 40px;
+
+  align-items: stretch;
+}
+
+.contact-section > * {
+  width: 100%;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+footer {
+  width: 100%;
+}
+
+.footer-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  padding-left: 24px;
+  padding-right: 24px;
+}
+
+/* ================================
+   BUTTON / CONTENT CENTERING
+================================ */
+
+.center-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 900px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .two-column-section,
+  .contact-section {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .section-container,
+  .section-inner,
+  .container,
+  .footer-container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .cards-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .section-title,
+  .section-heading {
+    max-width: 100%;
+  }
+
+  .section-description {
+    max-width: 100%;
+  }
+}

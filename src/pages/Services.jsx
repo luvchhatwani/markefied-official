@@ -57,11 +57,11 @@ export default function ServicesPage() {
       <Container maxWidth="md" sx={{ textAlign: 'center', mb: { xs: 8, md: 10 } }}>
         <Chip label="Services" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600 }} />
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-          <Typography variant="h1" sx={{ fontSize: { xs: '2.2rem', md: '3.2rem' }, mb: 3, fontFamily: 'Fraunces, serif' }}>
+          <Typography variant="h1" className="section-title" sx={{ fontSize: { xs: '2.2rem', md: '3.2rem' }, mb: 3, fontFamily: 'Fraunces, serif' }}>
             Paid Acquisition & Social Growth That Scales
           </Typography>
         </motion.div>
-        <Typography variant="body1" color="text.secondary" sx={{ maxWidth: 620, mx: 'auto', fontSize: '1.1rem' }}>
+        <Typography variant="body1" className="section-description" color="text.secondary" sx={{ maxWidth: 620, mx: 'auto', fontSize: '1.1rem' }}>
           We focus on what matters: driving leads, revenue, and compounding ROI for your business through optimized Google Ads, Meta Ads, and organic social strategy.
         </Typography>
       </Container>
@@ -118,6 +118,7 @@ export default function ServicesPage() {
             {/* Main Heading */}
             <Typography
               variant="h2"
+              className="section-title"
               sx={{
                 fontSize: { xs: '2rem', sm: '2.5rem', md: '2.8rem' },
                 fontWeight: 500,
@@ -133,6 +134,7 @@ export default function ServicesPage() {
             {/* Description */}
             <Typography
               variant="body1"
+              className="section-description"
               color="text.secondary"
               sx={{
                 fontSize: '1.05rem',

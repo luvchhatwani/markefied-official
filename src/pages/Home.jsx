@@ -127,14 +127,14 @@ export default function Home() {
       </Box>
 
       {/* Why Choose Us */}
-      <Box sx={{ py: { xs: 10, md: 14 } }}>
-        <Container maxWidth="lg">
+      <Box component="section" className="section-container" sx={{ py: { xs: 10, md: 14 } }}>
+        <Container maxWidth="lg" className="section-inner">
           <Box sx={{ textAlign: 'center', maxWidth: 580, mx: 'auto', mb: 8 }}>
             <Chip label="Why Partner With Us" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600 }} />
-            <Typography variant="h2" sx={{ fontSize: { xs: '2.2rem', md: '2.8rem' }, mb: 2, fontFamily: 'Fraunces, serif', fontWeight: 500 }}>
+            <Typography variant="h2" className="section-title" sx={{ fontSize: { xs: '2.2rem', md: '2.8rem' }, mb: 2, fontFamily: 'Fraunces, serif', fontWeight: 500 }}>
               Why Brands Partner with Markefied
             </Typography>
-            <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.05rem' }}>
+            <Typography variant="body1" className="section-description" color="text.secondary" sx={{ fontSize: '1.05rem' }}>
               We align our strategies directly with your revenue metrics, delivering senior-level expertise, transparent data, and rapid growth.
             </Typography>
           </Box>
@@ -196,14 +196,14 @@ export default function Home() {
       </Box>
 
       {/* Our Process Timeline */}
-      <Box sx={{ py: { xs: 10, md: 14 }, bgcolor: 'background.paper', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
-        <Container maxWidth="lg">
+      <Box component="section" className="section-container" sx={{ py: { xs: 10, md: 14 }, bgcolor: 'background.paper', borderTop: '1px solid rgba(255,255,255,0.05)' }}>
+        <Container maxWidth="lg" className="section-inner">
           <Box sx={{ textAlign: 'center', maxWidth: 560, mx: 'auto', mb: 8 }}>
             <Chip label="Workflow" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600 }} />
-            <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.5rem' }, mb: 2, fontFamily: 'Fraunces, serif' }}>
+            <Typography variant="h2" className="section-title" sx={{ fontSize: { xs: '2rem', md: '2.5rem' }, mb: 2, fontFamily: 'Fraunces, serif' }}>
               Our Process
             </Typography>
-            <Typography variant="body1" color="text.secondary">
+            <Typography variant="body1" className="section-description" color="text.secondary">
               Four simple steps that take your marketing campaigns from audit board to compounding ROI.
             </Typography>
           </Box>

@@ -73,6 +73,7 @@ function TiltCard({ service, index }) {
           }}
         >
           <Box
+            className="card"
             sx={{
               height: '100%',
               borderRadius: '23px',
@@ -127,14 +128,14 @@ function TiltCard({ service, index }) {
 
 export default function Services() {
   return (
-    <Box component="section" sx={{ py: { xs: 10, md: 14 }, bgcolor: 'background.default' }}>
-      <Container maxWidth="lg" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+    <Box component="section" className="section-container" sx={{ py: { xs: 10, md: 14 }, bgcolor: 'background.default' }}>
+      <Container maxWidth="lg" className="section-inner" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Box sx={{ maxWidth: 620, mb: 7, mx: 'auto', textAlign: 'center' }}>
           <Chip label="What We Do" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600 }} />
-          <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.75rem' }, mb: 2, fontFamily: 'Fraunces, serif', fontWeight: 500 }}>
+          <Typography variant="h2" className="section-title" sx={{ fontSize: { xs: '2rem', md: '2.75rem' }, mb: 2, fontFamily: 'Fraunces, serif', fontWeight: 500 }}>
             Three Core Disciplines. One Growth Engine.
           </Typography>
-          <Typography variant="body1" color="text.secondary" sx={{ fontSize: '1.05rem', lineHeight: 1.6 }}>
+          <Typography variant="body1" className="section-description" color="text.secondary" sx={{ fontSize: '1.05rem', lineHeight: 1.6 }}>
             We focus entirely on performance marketing and creative strategy — scaling your campaigns across search, social, and remarketing for maximum customer acquisition.
           </Typography>
         </Box>
