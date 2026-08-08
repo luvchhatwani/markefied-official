@@ -128,7 +128,7 @@ function TiltCard({ service, index }) {
 export default function Services() {
   return (
     <Box component="section" sx={{ py: { xs: 10, md: 14 }, bgcolor: 'background.default' }}>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg" sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <Box sx={{ maxWidth: 620, mb: 7, mx: 'auto', textAlign: 'center' }}>
           <Chip label="What We Do" sx={{ mb: 2, bgcolor: 'accent.main', color: 'primary.main', fontWeight: 600 }} />
           <Typography variant="h2" sx={{ fontSize: { xs: '2rem', md: '2.75rem' }, mb: 2, fontFamily: 'Fraunces, serif', fontWeight: 500 }}>
@@ -139,7 +139,7 @@ export default function Services() {
           </Typography>
         </Box>
 
-        <Grid container spacing={3}>
+        <Grid container spacing={3} justifyContent="center" sx={{ width: '100%' }}>
           {SERVICES.map((service, i) => (
             <TiltCard key={service.title} service={service} index={i} />
           ))}
