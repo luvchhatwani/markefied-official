@@ -8,6 +8,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollAnimation from './components/ScrollAnimation';
 
+import SEO from './components/SEO';
 import Home from './pages/Home';
 import About from './pages/About';
 import ServicesPage from './pages/Services';
@@ -52,12 +53,14 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
+      <SEO />
       <ScrollToTopOnRoute />
       <ScrollAnimation />
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
+        <Route path="/about-us" element={<About />} />
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
