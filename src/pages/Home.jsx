@@ -380,31 +380,81 @@ export default function Home() {
                 Schedule a strategy session with Markefied today. Tell us about your goals and we'll reply within one business day with a customized marketing audit.
               </Typography>
               <Stack spacing={2.5} sx={{ mt: 3, width: '100%', maxWidth: 480 }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 2, borderRadius: '16px', bgcolor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)', transition: 'all 0.3s', '&:hover': { transform: 'translateX(6px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' } }}>
-                  <Box sx={{ width: 44, height: 44, borderRadius: '12px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center' }}>
+                <Box
+                  component="a"
+                  href="mailto:markefied.official21@gmail.com"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    p: 2,
+                    borderRadius: '16px',
+                    bgcolor: 'rgba(255,255,255,0.02)',
+                    border: '1px solid rgba(255,255,255,0.04)',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    transition: 'all 0.3s',
+                    '&:hover': { transform: 'translateX(6px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' }
+                  }}
+                >
+                  <Box sx={{ width: 44, height: 44, borderRadius: '12px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <Mail size={20} color="#5084C4" />
                   </Box>
                   <Box>
                     <Typography variant="caption" color="text.secondary">EMAIL US</Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 600 }}>hello@markefied.com</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 600 }}>markefied.official21@gmail.com</Typography>
                   </Box>
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 2, borderRadius: '16px', bgcolor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)', transition: 'all 0.3s', '&:hover': { transform: 'translateX(6px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' } }}>
-                  <Box sx={{ width: 44, height: 44, borderRadius: '12px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center' }}>
+                <Box
+                  component="a"
+                  href="tel:+917850915986"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    p: 2,
+                    borderRadius: '16px',
+                    bgcolor: 'rgba(255,255,255,0.02)',
+                    border: '1px solid rgba(255,255,255,0.04)',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    transition: 'all 0.3s',
+                    '&:hover': { transform: 'translateX(6px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' }
+                  }}
+                >
+                  <Box sx={{ width: 44, height: 44, borderRadius: '12px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <Phone size={20} color="#5084C4" />
                   </Box>
                   <Box>
                     <Typography variant="caption" color="text.secondary">CALL US</Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 600 }}>+91 94140 12345</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 600 }}>+91 7850915986</Typography>
                   </Box>
                 </Box>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, p: 2, borderRadius: '16px', bgcolor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)', transition: 'all 0.3s', '&:hover': { transform: 'translateX(6px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' } }}>
-                  <Box sx={{ width: 44, height: 44, borderRadius: '12px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center' }}>
+                <Box
+                  component="a"
+                  href="https://maps.google.com/?q=9-A,+Jawahar+Nagar,+Udaipur,+Rajasthan,+India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    p: 2,
+                    borderRadius: '16px',
+                    bgcolor: 'rgba(255,255,255,0.02)',
+                    border: '1px solid rgba(255,255,255,0.04)',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    transition: 'all 0.3s',
+                    '&:hover': { transform: 'translateX(6px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' }
+                  }}
+                >
+                  <Box sx={{ width: 44, height: 44, borderRadius: '12px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
                     <MapPin size={20} color="#5084C4" />
                   </Box>
                   <Box>
                     <Typography variant="caption" color="text.secondary">LOCATION</Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 600, fontSize: '0.95rem' }}>Udaipur, Rajasthan, India – 313001</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 600, fontSize: '0.95rem' }}>9-A, Jawahar Nagar, Udaipur, Rajasthan, India</Typography>
                   </Box>
                 </Box>
               </Stack>

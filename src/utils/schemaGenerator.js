@@ -15,20 +15,20 @@ export const SOCIAL_PROFILES = [
 ];
 
 export const CONTACT_INFO = {
-  email: 'hello@markefied.com',
-  phone: '+91 94140 12345',
-  secondaryPhone: '+1 (415) 555-0176',
+  email: 'markefied.official21@gmail.com',
+  phone: '+91 7850915986',
+  secondaryPhone: '+91 7850915986',
   address: {
-    streetAddress: 'Udaipur',
+    streetAddress: '9-A, Jawahar Nagar',
     addressLocality: 'Udaipur',
     addressRegion: 'Rajasthan',
     postalCode: '313001',
     addressCountry: 'IN',
   },
   secondaryLocation: {
-    addressLocality: 'San Francisco',
-    addressRegion: 'CA',
-    addressCountry: 'US',
+    addressLocality: 'Udaipur',
+    addressRegion: 'Rajasthan',
+    addressCountry: 'IN',
   },
 };
 

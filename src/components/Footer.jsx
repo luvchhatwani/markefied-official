@@ -166,23 +166,43 @@ export default function Footer() {
                 Subscribe
               </Button>
             </Box>
-            <Stack spacing={1} alignItems="center">
+            <Stack spacing={1.2} alignItems="center">
               <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
-                <FiMail size={15} color="rgba(255,255,255,0.6)" />
-                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)' }}>
-                  hello@markefied.com
+                <FiMail size={15} color="rgba(255,255,255,0.6)" style={{ flexShrink: 0 }} />
+                <Typography
+                  component="a"
+                  href="mailto:markefied.official21@gmail.com"
+                  variant="body2"
+                  sx={{
+                    color: 'rgba(255,255,255,0.7)',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s',
+                    '&:hover': { color: '#5084C4' },
+                  }}
+                >
+                  markefied.official21@gmail.com
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
-                <FiPhone size={15} color="rgba(255,255,255,0.6)" />
-                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)' }}>
-                  +1 (415) 555-0176
+                <FiPhone size={15} color="rgba(255,255,255,0.6)" style={{ flexShrink: 0 }} />
+                <Typography
+                  component="a"
+                  href="tel:+917850915986"
+                  variant="body2"
+                  sx={{
+                    color: 'rgba(255,255,255,0.7)',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s',
+                    '&:hover': { color: '#5084C4' },
+                  }}
+                >
+                  +91 7850915986
                 </Typography>
               </Stack>
               <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
-                <FiMapPin size={15} color="rgba(255,255,255,0.6)" />
-                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)' }}>
-                  San Francisco, CA
+                <FiMapPin size={15} color="rgba(255,255,255,0.6)" style={{ flexShrink: 0 }} />
+                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)', textAlign: 'center' }}>
+                  9-A, Jawahar Nagar, Udaipur, Rajasthan, India
                 </Typography>
               </Stack>
             </Stack>

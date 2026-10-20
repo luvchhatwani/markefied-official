@@ -46,33 +46,83 @@ export default function Contact() {
               </Typography>
 
               <Stack spacing={3} sx={{ mb: 5, width: '100%', maxWidth: 480, mx: 'auto' }}>
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2.5, p: 2, borderRadius: '16px', bgcolor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)', transition: 'all 0.3s', '&:hover': { transform: 'translateY(-4px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' } }}>
+                <Box
+                  component="a"
+                  href="mailto:markefied.official21@gmail.com"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2.5,
+                    p: 2,
+                    borderRadius: '16px',
+                    bgcolor: 'rgba(255,255,255,0.02)',
+                    border: '1px solid rgba(255,255,255,0.04)',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    transition: 'all 0.3s',
+                    '&:hover': { transform: 'translateY(-4px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' }
+                  }}
+                >
                   <Box sx={{ width: 48, height: 48, borderRadius: '14px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'primary.main', flexShrink: 0 }}>
                     <Mail />
                   </Box>
                   <Box sx={{ textAlign: 'left' }}>
                     <Typography variant="caption" color="text.secondary">Email Us</Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 600 }}>hello@markefied.com</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 600 }}>markefied.official21@gmail.com</Typography>
                   </Box>
                 </Box>
 
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2.5, p: 2, borderRadius: '16px', bgcolor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)', transition: 'all 0.3s', '&:hover': { transform: 'translateY(-4px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' } }}>
+                <Box
+                  component="a"
+                  href="tel:+917850915986"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2.5,
+                    p: 2,
+                    borderRadius: '16px',
+                    bgcolor: 'rgba(255,255,255,0.02)',
+                    border: '1px solid rgba(255,255,255,0.04)',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    transition: 'all 0.3s',
+                    '&:hover': { transform: 'translateY(-4px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' }
+                  }}
+                >
                   <Box sx={{ width: 48, height: 48, borderRadius: '14px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'primary.main', flexShrink: 0 }}>
                     <Phone />
                   </Box>
                   <Box sx={{ textAlign: 'left' }}>
                     <Typography variant="caption" color="text.secondary">Call Us</Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 600 }}>+91 94140 12345</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 600 }}>+91 7850915986</Typography>
                   </Box>
                 </Box>
 
-                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2.5, p: 2, borderRadius: '16px', bgcolor: 'rgba(255,255,255,0.02)', border: '1px solid rgba(255,255,255,0.04)', transition: 'all 0.3s', '&:hover': { transform: 'translateY(-4px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' } }}>
+                <Box
+                  component="a"
+                  href="https://maps.google.com/?q=9-A,+Jawahar+Nagar,+Udaipur,+Rajasthan,+India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2.5,
+                    p: 2,
+                    borderRadius: '16px',
+                    bgcolor: 'rgba(255,255,255,0.02)',
+                    border: '1px solid rgba(255,255,255,0.04)',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    transition: 'all 0.3s',
+                    '&:hover': { transform: 'translateY(-4px)', borderColor: 'primary.main', bgcolor: 'rgba(80,132,196,0.04)' }
+                  }}
+                >
                   <Box sx={{ width: 48, height: 48, borderRadius: '14px', bgcolor: 'accent.main', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'primary.main', flexShrink: 0 }}>
                     <Place />
                   </Box>
                   <Box sx={{ textAlign: 'left' }}>
                     <Typography variant="caption" color="text.secondary">Our Office</Typography>
-                    <Typography variant="body1" sx={{ fontWeight: 600, fontSize: '0.95rem' }}>Udaipur, Rajasthan, India – 313001</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 600, fontSize: '0.95rem' }}>9-A, Jawahar Nagar, Udaipur, Rajasthan, India</Typography>
                   </Box>
                 </Box>
               </Stack>
@@ -134,11 +184,32 @@ export default function Contact() {
         </Grid>
 
         {/* Google Maps Placeholder */}
-        <Box sx={{ mt: 8, height: 350, width: '100%', borderRadius: '28px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.06)', position: 'relative', bgcolor: '#121319' }}>
-          <Box sx={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', placeContent: 'center', gap: 1, zIndex: 1 }}>
+        <Box
+          component="a"
+          href="https://maps.google.com/?q=9-A,+Jawahar+Nagar,+Udaipur,+Rajasthan,+India"
+          target="_blank"
+          rel="noopener noreferrer"
+          sx={{
+            mt: 8,
+            height: 350,
+            width: '100%',
+            borderRadius: '28px',
+            overflow: 'hidden',
+            border: '1px solid rgba(255,255,255,0.06)',
+            position: 'relative',
+            bgcolor: '#121319',
+            display: 'block',
+            textDecoration: 'none',
+            transition: 'border-color 0.3s, transform 0.3s',
+            '&:hover': {
+              borderColor: 'primary.main',
+            }
+          }}
+        >
+          <Box sx={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', placeContent: 'center', gap: 1, zIndex: 1, px: 2, textAlign: 'center' }}>
             <Place sx={{ fontSize: 40, color: 'primary.main' }} />
             <Typography variant="h6" sx={{ color: '#fff', fontWeight: 600 }}>Markefied HQ</Typography>
-            <Typography variant="body2" color="text.secondary">Udaipur, Rajasthan, India – 313001</Typography>
+            <Typography variant="body2" color="text.secondary">9-A, Jawahar Nagar, Udaipur, Rajasthan, India</Typography>
           </Box>
           {/* Stylized background to resemble dark google map */}
           <Box sx={{ width: '100%', height: '100%', opacity: 0.2, background: 'radial-gradient(circle, rgba(80,132,196,0.3) 0%, transparent 80%), repeating-linear-gradient(0deg, #111 0px, #111 1px, transparent 1px, transparent 40px), repeating-linear-gradient(90deg, #111 0px, #111 1px, transparent 1px, transparent 40px)' }} />
