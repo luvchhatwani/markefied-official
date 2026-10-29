@@ -23,7 +23,6 @@ import {
   DialogActions,
   Snackbar,
   Alert,
-  Stack,
 } from '@mui/material';
 import {
   Menu as MenuIcon,
@@ -425,14 +424,7 @@ export default function Header() {
                 </MenuItem>
               </Menu>
 
-              {/* Log In Button */}
-              <Button
-                variant="text"
-                onClick={() => setPortalDialogOpen(true)}
-                sx={{ display: { xs: 'none', md: 'inline-flex' }, color: 'text.primary', fontWeight: 500, '&:hover': { color: 'primary.main' } }}
-              >
-                Log In
-              </Button>
+
 
               {/* Get Started Button */}
               <motion.div whileHover={{ scale: 1.045 }} whileTap={{ scale: 0.96 }}>
@@ -589,19 +581,7 @@ export default function Header() {
 
           <Divider sx={{ my: 3, borderColor: 'rgba(255,255,255,0.06)' }} />
 
-          <Stack spacing={1.5}>
-            <Button
-              variant="outlined"
-              fullWidth
-              onClick={() => {
-                setMobileOpen(false);
-                setPortalDialogOpen(true);
-              }}
-              startIcon={<LockOutlined />}
-              sx={{ py: 1.2, borderColor: 'rgba(255,255,255,0.15)', color: '#fff' }}
-            >
-              Client Log In
-            </Button>
+          <Box sx={{ mt: 1 }}>
             <Button
               component={NavLink}
               to="/contact"
@@ -613,7 +593,7 @@ export default function Header() {
             >
               Get Started
             </Button>
-          </Stack>
+          </Box>
         </Drawer>
       </AppBar>
 
