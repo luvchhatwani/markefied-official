@@ -6,6 +6,7 @@ import { ArrowForward, ExpandMore } from '@mui/icons-material';
 import { motion, AnimatePresence } from 'framer-motion';
 import useCountUp from '../hooks/useCountUp';
 import { Users, BarChart3, Target, LifeBuoy, Phone, Mail, MapPin } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const WHY_PARTNER_CARDS = [
   {
@@ -95,7 +96,7 @@ function StatBlock({ stat }) {
 export default function Home() {
   const [activeIdx, setActiveIdx] = useState(0);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', businessName: '', message: '' });
-  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -106,7 +107,38 @@ export default function Home() {
 
   const handleContactSubmit = (e) => {
     e.preventDefault();
-    setSnackbarOpen(true);
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const message = formData.message.trim();
+
+    if (!name || !email || !message) {
+      setSnackbar({ open: true, message: 'Please fill in all required fields (Name, Email, Message).', severity: 'error' });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      setSnackbar({ open: true, message: 'Please enter a valid email address.', severity: 'error' });
+      return;
+    }
+
+    try {
+      const existing = JSON.parse(localStorage.getItem('markefied_inquiries') || '[]');
+      existing.push({
+        ...formData,
+        submittedAt: new Date().toISOString(),
+        source: 'Home Page Free Consultation',
+      });
+      localStorage.setItem('markefied_inquiries', JSON.stringify(existing));
+    } catch {
+      // Ignore
+    }
+
+    setSnackbar({
+      open: true,
+      message: `Thank you, ${name}! Your consultation request has been submitted. We will reach out within 24 hours.`,
+      severity: 'success',
+    });
     setFormData({ name: '', email: '', phone: '', businessName: '', message: '' });
   };
 
@@ -380,6 +412,7 @@ export default function Home() {
                 Schedule a strategy session with Markefied today. Tell us about your goals and we'll reply within one business day with a customized marketing audit.
               </Typography>
               <Stack spacing={2.5} sx={{ mt: 3, width: '100%', maxWidth: 480 }}>
+                {/* Email */}
                 <Box
                   component="a"
                   href="mailto:markefied.official21@gmail.com"
@@ -405,6 +438,8 @@ export default function Home() {
                     <Typography variant="body1" sx={{ fontWeight: 600 }}>markefied.official21@gmail.com</Typography>
                   </Box>
                 </Box>
+
+                {/* Call */}
                 <Box
                   component="a"
                   href="tel:+917850915986"
@@ -430,6 +465,37 @@ export default function Home() {
                     <Typography variant="body1" sx={{ fontWeight: 600 }}>+91 7850915986</Typography>
                   </Box>
                 </Box>
+
+                {/* WhatsApp */}
+                <Box
+                  component="a"
+                  href="https://wa.me/917850915986?text=Hello%20Markefied%2C%20I%20would%20like%20to%20request%20a%20free%20marketing%20consultation."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: 2,
+                    p: 2,
+                    borderRadius: '16px',
+                    bgcolor: 'rgba(255,255,255,0.02)',
+                    border: '1px solid rgba(255,255,255,0.04)',
+                    textDecoration: 'none',
+                    color: 'inherit',
+                    transition: 'all 0.3s',
+                    '&:hover': { transform: 'translateX(6px)', borderColor: '#25D366', bgcolor: 'rgba(37,211,102,0.04)' }
+                  }}
+                >
+                  <Box sx={{ width: 44, height: 44, borderRadius: '12px', bgcolor: 'rgba(37,211,102,0.12)', display: 'flex', alignItems: 'center', justifyItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+                    <FaWhatsapp size={20} color="#25D366" />
+                  </Box>
+                  <Box>
+                    <Typography variant="caption" color="text.secondary">WHATSAPP US</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 600 }}>+91 7850915986</Typography>
+                  </Box>
+                </Box>
+
+                {/* Location */}
                 <Box
                   component="a"
                   href="https://maps.google.com/?q=9-A,+Jawahar+Nagar,+Udaipur,+Rajasthan,+India"
@@ -489,9 +555,14 @@ export default function Home() {
         </Container>
       </Box>
 
-      <Snackbar open={snackbarOpen} autoHideDuration={4000} onClose={() => setSnackbarOpen(false)} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
-        <Alert severity="success" variant="filled" onClose={() => setSnackbarOpen(false)}>
-          Thank you! We have received your consultation request.
+      <Snackbar
+        open={snackbar.open}
+        autoHideDuration={5000}
+        onClose={() => setSnackbar({ ...snackbar, open: false })}
+        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
+      >
+        <Alert severity={snackbar.severity} variant="filled" onClose={() => setSnackbar({ ...snackbar, open: false })}>
+          {snackbar.message}
         </Alert>
       </Snackbar>
     </Box>

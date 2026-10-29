@@ -17,6 +17,7 @@ import {
 import { KeyboardArrowUp } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { FiTwitter, FiInstagram, FiLinkedin, FiFacebook, FiMail, FiMapPin, FiPhone } from 'react-icons/fi';
+import { FaWhatsapp } from 'react-icons/fa';
 
 const QUICK_LINKS = [
   { label: 'Home', to: '/' },
@@ -34,7 +35,7 @@ const SERVICE_LINKS = [
 
 const SOCIALS = [
   { icon: FiTwitter, label: 'X (Twitter)', href: 'https://twitter.com' },
-  { icon: FiInstagram, label: 'Instagram', href: 'https://www.instagram.com/markefiedofficial/'},
+  { icon: FiInstagram, label: 'Instagram', href: 'https://www.instagram.com/markefiedofficial/' },
   { icon: FiLinkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/luv-chhatwani-561257427/' },
   { icon: FiFacebook, label: 'Facebook', href: 'https://facebook.com' },
 ];
@@ -46,12 +47,23 @@ export default function Footer() {
   const handleSubscribe = (e) => {
     e.preventDefault();
     if (!email) return;
+    try {
+      const existing = JSON.parse(localStorage.getItem('markefied_subscribers') || '[]');
+      existing.push({ email, subscribedAt: new Date().toISOString() });
+      localStorage.setItem('markefied_subscribers', JSON.stringify(existing));
+    } catch {
+      // Ignore
+    }
     setToastOpen(true);
     setEmail('');
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (window.lenis) {
+      window.lenis.scrollTo(0, { immediate: false });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -59,7 +71,11 @@ export default function Footer() {
       <Container maxWidth="lg" className="footer-container">
         <Grid container spacing={6} justifyContent="center">
           <Grid item xs={12} md={4} sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
-            <Box sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2, justifyContent: 'center' }}>
+            <Box
+              component={NavLink}
+              to="/"
+              sx={{ display: 'flex', alignItems: 'center', gap: 1.5, mb: 2, justifyContent: 'center', textDecoration: 'none', color: 'inherit' }}
+            >
               <Box
                 component="img"
                 src="/logo.png"
@@ -90,7 +106,8 @@ export default function Footer() {
                   sx={{
                     color: '#fff',
                     bgcolor: 'rgba(255,255,255,0.06)',
-                    '&:hover': { bgcolor: 'primary.main' },
+                    transition: 'all 0.3s ease',
+                    '&:hover': { bgcolor: 'primary.main', transform: 'translateY(-2px)' },
                   }}
                 >
                   <Icon size={16} />
@@ -110,7 +127,12 @@ export default function Footer() {
                   component={NavLink}
                   to={l.to}
                   variant="body2"
-                  sx={{ color: 'rgba(255,255,255,0.75)', textDecoration: 'none', '&:hover': { color: '#5084C4' } }}
+                  sx={{
+                    color: 'rgba(255,255,255,0.75)',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s',
+                    '&:hover': { color: '#5084C4' }
+                  }}
                 >
                   {l.label}
                 </Typography>
@@ -129,7 +151,12 @@ export default function Footer() {
                   component={NavLink}
                   to={l.to}
                   variant="body2"
-                  sx={{ color: 'rgba(255,255,255,0.75)', textDecoration: 'none', '&:hover': { color: '#5084C4' } }}
+                  sx={{
+                    color: 'rgba(255,255,255,0.75)',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s',
+                    '&:hover': { color: '#5084C4' }
+                  }}
                 >
                   {l.label}
                 </Typography>
@@ -167,6 +194,7 @@ export default function Footer() {
               </Button>
             </Box>
             <Stack spacing={1.2} alignItems="center">
+              {/* Email */}
               <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
                 <FiMail size={15} color="rgba(255,255,255,0.6)" style={{ flexShrink: 0 }} />
                 <Typography
@@ -183,6 +211,8 @@ export default function Footer() {
                   markefied.official21@gmail.com
                 </Typography>
               </Stack>
+
+              {/* Phone */}
               <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
                 <FiPhone size={15} color="rgba(255,255,255,0.6)" style={{ flexShrink: 0 }} />
                 <Typography
@@ -199,9 +229,44 @@ export default function Footer() {
                   +91 7850915986
                 </Typography>
               </Stack>
+
+              {/* WhatsApp */}
+              <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
+                <FaWhatsapp size={15} color="#25D366" style={{ flexShrink: 0 }} />
+                <Typography
+                  component="a"
+                  href="https://wa.me/917850915986?text=Hello%20Markefied%20Team%2C%20I%20would%20like%20to%20inquire%20about%20your%20services."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="body2"
+                  sx={{
+                    color: 'rgba(255,255,255,0.7)',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s',
+                    '&:hover': { color: '#25D366' },
+                  }}
+                >
+                  WhatsApp: +91 7850915986
+                </Typography>
+              </Stack>
+
+              {/* Office */}
               <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
                 <FiMapPin size={15} color="rgba(255,255,255,0.6)" style={{ flexShrink: 0 }} />
-                <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.7)', textAlign: 'center' }}>
+                <Typography
+                  component="a"
+                  href="https://maps.google.com/?q=9-A,+Jawahar+Nagar,+Udaipur,+Rajasthan,+India"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="body2"
+                  sx={{
+                    color: 'rgba(255,255,255,0.7)',
+                    textAlign: 'center',
+                    textDecoration: 'none',
+                    transition: 'color 0.2s',
+                    '&:hover': { color: '#5084C4' },
+                  }}
+                >
                   9-A, Jawahar Nagar, Udaipur, Rajasthan, India
                 </Typography>
               </Stack>
@@ -225,10 +290,30 @@ export default function Footer() {
             © 2026 Markefied. All Rights Reserved.
           </Typography>
           <Stack direction="row" spacing={3}>
-            <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.5)' }}>
+            <Typography
+              component={NavLink}
+              to="/privacy"
+              variant="body2"
+              sx={{
+                color: 'rgba(255,255,255,0.6)',
+                textDecoration: 'none',
+                transition: 'color 0.2s',
+                '&:hover': { color: '#5084C4' }
+              }}
+            >
               Privacy Policy
             </Typography>
-            <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.5)' }}>
+            <Typography
+              component={NavLink}
+              to="/terms"
+              variant="body2"
+              sx={{
+                color: 'rgba(255,255,255,0.6)',
+                textDecoration: 'none',
+                transition: 'color 0.2s',
+                '&:hover': { color: '#5084C4' }
+              }}
+            >
               Terms of Service
             </Typography>
           </Stack>
@@ -254,7 +339,7 @@ export default function Footer() {
 
       <Snackbar open={toastOpen} autoHideDuration={3000} onClose={() => setToastOpen(false)} anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}>
         <Alert severity="success" variant="filled" onClose={() => setToastOpen(false)}>
-          You're subscribed — welcome to the studio newsletter.
+          You're subscribed — welcome to the Markefied newsletter.
         </Alert>
       </Snackbar>
     </Box>

@@ -1,4 +1,5 @@
 import { Box, Container, Typography, Grid, Chip, Button, Card, CardContent, Accordion, AccordionSummary, AccordionDetails, Divider, Stack } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 import { ExpandMore, Check, ArrowForward } from '@mui/icons-material';
 import { motion } from 'framer-motion';
 import { Share2, Search, Target, ShieldCheck, Zap, BarChart3 } from 'lucide-react';
@@ -284,6 +285,8 @@ export default function ServicesPage() {
                     <Button
                       fullWidth
                       variant={plan.highlighted ? 'contained' : 'outlined'}
+                      component={NavLink}
+                      to={'/contact?plan=' + encodeURIComponent(plan.name)}
                       color="primary"
                       size="large"
                     >
@@ -322,7 +325,7 @@ export default function ServicesPage() {
           <Typography variant="body1" color="text.secondary" sx={{ mb: 3 }}>
             Tell us about your growth goals — we'll reply with a customized marketing audit within one business day.
           </Typography>
-          <Button variant="contained" color="primary" size="large" onClick={() => window.location.href = '/contact'} endIcon={<ArrowForward />} sx={{ px: 4 }}>
+          <Button component={NavLink} to="/contact" variant="contained" color="primary" size="large" endIcon={<ArrowForward />} sx={{ px: 4 }}>
             Contact Us
           </Button>
         </Box>

@@ -343,6 +343,28 @@ export const PAGE_CONFIGS = {
     includeFaq: false,
     includeServices: false,
   },
+  '/privacy': {
+    title: 'Privacy Policy | Markefied Digital Marketing',
+    description: 'Read the Markefied Privacy Policy regarding data protection and client confidentiality.',
+    pageType: 'WebPage',
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Privacy Policy', path: '/privacy' },
+    ],
+    includeFaq: false,
+    includeServices: false,
+  },
+  '/terms': {
+    title: 'Terms of Service | Markefied Digital Marketing',
+    description: 'Read the Markefied Terms of Service regarding advertising campaigns and deliverables.',
+    pageType: 'WebPage',
+    breadcrumbs: [
+      { name: 'Home', path: '/' },
+      { name: 'Terms of Service', path: '/terms' },
+    ],
+    includeFaq: false,
+    includeServices: false,
+  },
 };
 
 /**

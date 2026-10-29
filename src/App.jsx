@@ -6,6 +6,7 @@ import useLenis from './hooks/useLenis';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
+import FloatingWhatsApp from './components/FloatingWhatsApp';
 import ScrollAnimation from './components/ScrollAnimation';
 
 import SEO from './components/SEO';
@@ -14,28 +15,43 @@ import About from './pages/About';
 import ServicesPage from './pages/Services';
 import Blog from './pages/Blog';
 import Contact from './pages/Contact';
+import Privacy from './pages/Privacy';
+import Terms from './pages/Terms';
+import NotFound from './pages/NotFound';
 
 function ScrollToTopOnRoute() {
   const { pathname, hash } = useLocation();
+
   useEffect(() => {
     if (hash) {
-      const scrollTarget = hash;
-      const element = document.querySelector(scrollTarget);
-      if (element) {
-        if (window.lenis) {
-          window.lenis.scrollTo(scrollTarget, { immediate: false });
-        } else {
-          element.scrollIntoView({ behavior: 'smooth' });
+      const scrollToHashElement = () => {
+        const element = document.querySelector(hash);
+        if (element) {
+          if (window.lenis) {
+            window.lenis.scrollTo(element, { offset: -90, immediate: false });
+          } else {
+            element.scrollIntoView({ behavior: 'smooth' });
+          }
+          return true;
         }
-        return;
+        return false;
+      };
+
+      // Try immediately, or retry after DOM render tick
+      if (!scrollToHashElement()) {
+        const timeout = setTimeout(scrollToHashElement, 150);
+        return () => clearTimeout(timeout);
       }
+      return;
     }
+
     if (window.lenis) {
       window.lenis.scrollTo(0, { immediate: true });
     } else {
       window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' });
     }
   }, [pathname, hash]);
+
   return null;
 }
 
@@ -64,16 +80,12 @@ export default function App() {
         <Route path="/services" element={<ServicesPage />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
-        <Route
-          path="*"
-          element={
-            <div style={{ padding: '160px 24px 120px', textAlign: 'center' }}>
-              <h1>404 — Page not found</h1>
-            </div>
-          }
-        />
+        <Route path="/privacy" element={<Privacy />} />
+        <Route path="/terms" element={<Terms />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
+      <FloatingWhatsApp />
     </ThemeProvider>
   );
 }

@@ -1,4 +1,5 @@
 import { Box, Container, Typography, Grid, Chip, Avatar, Button } from '@mui/material';
+import { NavLink } from 'react-router-dom';
 import {
   Timeline,
   TimelineItem,
@@ -232,7 +233,7 @@ export default function About() {
           <Typography variant="body1" color="text.secondary" sx={{ mb: 4, maxWidth: 440, mx: 'auto' }}>
             We work with a select number of brands each month to guarantee focused creative resources and media buying depth.
           </Typography>
-          <Button variant="contained" color="primary" size="large" onClick={() => window.location.href = '/contact'} endIcon={<ArrowForward />} sx={{ px: 4, py: 1.6 }}>
+          <Button component={NavLink} to="/contact" variant="contained" color="primary" size="large" endIcon={<ArrowForward />} sx={{ px: 4, py: 1.6 }}>
             Get in Touch
           </Button>
         </Box>

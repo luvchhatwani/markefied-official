@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Container, Typography, Button, Chip, Stack } from '@mui/material';
 import { ArrowForward, PlayArrow } from '@mui/icons-material';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
@@ -45,6 +46,7 @@ function MagneticButton({ children, ...props }) {
 }
 
 export default function Banner() {
+  const navigate = useNavigate();
   const heroRef = useRef(null);
   const stageRef = useRef(null);
   const cardsRef = useRef([]);
@@ -242,7 +244,7 @@ export default function Banner() {
                   variant="contained"
                   color="primary"
                   size="large"
-                  onClick={() => window.location.href = '/contact'}
+                  onClick={() => navigate('/contact')}
                   endIcon={<ArrowForward />}
                   sx={{ px: 4, py: 1.6, fontSize: 16, boxShadow: '0 14px 30px rgba(80,132,196,0.35)' }}
                 >
@@ -252,7 +254,7 @@ export default function Banner() {
                   variant="outlined"
                   color="secondary"
                   size="large"
-                  onClick={() => window.location.href = '/services'}
+                  onClick={() => navigate('/services')}
                   startIcon={<PlayArrow />}
                   sx={{ px: 4, py: 1.6, fontSize: 16, borderColor: 'rgba(255,255,255,0.15)', color: '#fff' }}
                 >

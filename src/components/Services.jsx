@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Box, Container, Typography, Grid, Button, Chip } from '@mui/material';
 import { ArrowOutward } from '@mui/icons-material';
 import { motion } from 'framer-motion';
@@ -29,6 +30,7 @@ const SERVICES = [
 ];
 
 function TiltCard({ service, index }) {
+  const navigate = useNavigate();
   const ref = useRef(null);
   const Icon = service.icon;
 
@@ -108,7 +110,7 @@ function TiltCard({ service, index }) {
             </Typography>
             <Button
               endIcon={<ArrowOutward sx={{ fontSize: 16 }} />}
-              onClick={() => window.location.href = `/services#${service.id}`}
+              onClick={() => navigate(`/services#${service.id}`)}
               sx={{
                 alignSelf: 'center',
                 px: 0,
