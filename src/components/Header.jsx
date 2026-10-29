@@ -11,18 +11,11 @@ import {
   Drawer,
   Menu,
   MenuItem,
-  Avatar,
   Badge,
   Tooltip,
   Divider,
   InputBase,
   Fade,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  Snackbar,
-  Alert,
 } from '@mui/material';
 import {
   Menu as MenuIcon,
@@ -30,12 +23,10 @@ import {
   Search as SearchIcon,
   NotificationsNone,
   KeyboardArrowDown,
-  LockOutlined,
   Campaign,
   TrendingUp,
   Article,
 } from '@mui/icons-material';
-import { FaWhatsapp } from 'react-icons/fa';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_LINKS = [
@@ -84,10 +75,7 @@ export default function Header() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
   const [servicesAnchor, setServicesAnchor] = useState(null);
-  const [profileAnchor, setProfileAnchor] = useState(null);
   const [notificationsAnchor, setNotificationsAnchor] = useState(null);
-  const [portalDialogOpen, setPortalDialogOpen] = useState(false);
-  const [toastMessage, setToastMessage] = useState('');
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -356,76 +344,6 @@ export default function Header() {
                 })}
               </Menu>
 
-              <Tooltip title="Client Account">
-                <IconButton 
-                  onClick={(e) => setProfileAnchor(e.currentTarget)} 
-                  aria-label="User profile"
-                  sx={{ 
-                    display: { xs: 'none', sm: 'inline-flex' },
-                    p: 0.5,
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      transform: 'scale(1.1)',
-                    }
-                  }}
-                >
-                  <Avatar sx={{ 
-                    width: 32, 
-                    height: 32, 
-                    bgcolor: 'primary.main', 
-                    fontSize: 14,
-                    fontWeight: 600,
-                    transition: 'all 0.3s ease',
-                    '&:hover': {
-                      boxShadow: '0 0 10px rgba(80,132,196,0.6)',
-                    }
-                  }}>M</Avatar>
-                </IconButton>
-              </Tooltip>
-              <Menu
-                anchorEl={profileAnchor}
-                open={Boolean(profileAnchor)}
-                onClose={() => setProfileAnchor(null)}
-                PaperProps={{
-                  sx: {
-                    mt: 1,
-                    borderRadius: 3,
-                    minWidth: 190,
-                    bgcolor: 'background.paper',
-                    border: '1px solid rgba(255,255,255,0.08)',
-                    boxShadow: '0 20px 48px rgba(0,0,0,0.5)',
-                  }
-                }}
-              >
-                <MenuItem
-                  onClick={() => {
-                    setProfileAnchor(null);
-                    setPortalDialogOpen(true);
-                  }}
-                >
-                  Client Portal
-                </MenuItem>
-                <MenuItem
-                  onClick={() => {
-                    setProfileAnchor(null);
-                    navigate('/contact');
-                  }}
-                >
-                  Request Consultation
-                </MenuItem>
-                <Divider sx={{ borderColor: 'rgba(255,255,255,0.06)' }} />
-                <MenuItem
-                  onClick={() => {
-                    setProfileAnchor(null);
-                    setToastMessage('Signed out of guest session.');
-                  }}
-                >
-                  Sign Out
-                </MenuItem>
-              </Menu>
-
-
-
               {/* Get Started Button */}
               <motion.div whileHover={{ scale: 1.045 }} whileTap={{ scale: 0.96 }}>
                 <Button
@@ -596,81 +514,6 @@ export default function Header() {
           </Box>
         </Drawer>
       </AppBar>
-
-      {/* Client Portal Dialog */}
-      <Dialog
-        open={portalDialogOpen}
-        onClose={() => setPortalDialogOpen(false)}
-        maxWidth="xs"
-        fullWidth
-        PaperProps={{
-          sx: {
-            borderRadius: '24px',
-            bgcolor: 'background.paper',
-            border: '1px solid rgba(255,255,255,0.08)',
-            p: 1.5,
-          }
-        }}
-      >
-        <DialogTitle sx={{ pb: 1, pt: 2, display: 'flex', alignItems: 'center', gap: 1.5, fontFamily: 'Fraunces, serif', fontWeight: 600 }}>
-          <Box sx={{ p: 1, borderRadius: '12px', bgcolor: 'accent.main', color: 'primary.main', display: 'flex' }}>
-            <LockOutlined />
-          </Box>
-          Markefied Client Portal
-        </DialogTitle>
-        <DialogContent sx={{ py: 1 }}>
-          <Typography variant="body2" color="text.secondary" sx={{ mb: 2.5, lineHeight: 1.7 }}>
-            Client campaigns, real-time ROI reports, and ad creatives are securely tracked via our dedicated Slack channels and live Google Looker Studio dashboards.
-          </Typography>
-          <Box sx={{ p: 2, borderRadius: '16px', bgcolor: 'background.default', border: '1px solid rgba(255,255,255,0.06)' }}>
-            <Typography variant="caption" sx={{ color: 'primary.light', fontWeight: 600, display: 'block', mb: 0.5 }}>
-              NEED DASHBOARD ACCESS?
-            </Typography>
-            <Typography variant="body2" color="text.secondary">
-              Contact your designated account lead or email us at{' '}
-              <Box component="a" href="mailto:markefied.official21@gmail.com" sx={{ color: 'primary.main', textDecoration: 'none', fontWeight: 600 }}>
-                markefied.official21@gmail.com
-              </Box>
-            </Typography>
-          </Box>
-        </DialogContent>
-        <DialogActions sx={{ p: 2, gap: 1, flexDirection: { xs: 'column', sm: 'row' } }}>
-          <Button
-            component="a"
-            href="https://wa.me/917850915986?text=Hello%20Markefied%2C%20I%20need%20assistance%20accessing%20my%20client%20marketing%20dashboard."
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="outlined"
-            startIcon={<FaWhatsapp />}
-            fullWidth
-            sx={{ borderColor: 'rgba(37, 211, 102, 0.4)', color: '#25D366', '&:hover': { borderColor: '#25D366' } }}
-          >
-            WhatsApp Support
-          </Button>
-          <Button
-            component={NavLink}
-            to="/contact"
-            onClick={() => setPortalDialogOpen(false)}
-            variant="contained"
-            color="primary"
-            fullWidth
-          >
-            Contact Team
-          </Button>
-        </DialogActions>
-      </Dialog>
-
-      {/* Snackbar feedback */}
-      <Snackbar
-        open={Boolean(toastMessage)}
-        autoHideDuration={3000}
-        onClose={() => setToastMessage('')}
-        anchorOrigin={{ vertical: 'bottom', horizontal: 'center' }}
-      >
-        <Alert severity="info" variant="filled" onClose={() => setToastMessage('')} sx={{ bgcolor: 'secondary.main', color: '#fff' }}>
-          {toastMessage}
-        </Alert>
-      </Snackbar>
     </>
   );
 }
